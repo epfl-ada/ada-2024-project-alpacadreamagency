@@ -1,4 +1,4 @@
-> ![!NOTE]
+> [!NOTE]
 > Fredick Gguyen, Sayaka Yamashita, Catalina Regolf, Clementine Lefloch &  Miquel Gomez
 
 Readme.md file containing the detailed project proposal (up to 1000 words). Your README.md should contain:
