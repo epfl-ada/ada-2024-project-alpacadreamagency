@@ -8,6 +8,7 @@ from nltk.stem import PorterStemmer
 from nltk.stem.snowball import SnowballStemmer
 import re
 import ast
+import os
 
 nltk.download("stopwords")
 
@@ -53,10 +54,11 @@ def find_theme(text_df, theme_df):
     return encoding
 
 def theme_encoding(plots, theme_list):
-    try:
-        df = pd.read_csv("stemmed_movie_summaries.csv")
+    file_path = "stemmed_movie_summaries.csv"
+    if os.path.exists(file_path):
+        df = pd.read_csv(file_path)
         df['text'] = df['text'].apply(lambda x: ast.literal_eval(x))
-    except FileNotFoundError:
+    else:
         df = pd.DataFrame({"text": plots.values})
         df = clean_text(df, "stemmed_movie_summaries.csv")
 
