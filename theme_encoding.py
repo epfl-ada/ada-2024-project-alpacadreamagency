@@ -88,9 +88,9 @@ def theme_encoding(plots):
         matrix[:, idx] = encoding
 
     for i in range(matrix.shape[0]):
-        max_val = np.max(matrix[i, :])
-        if max_val != 0:
-            matrix[i, :] = matrix[i, :]/max_val
+        norm = np.sum(matrix[i, :])
+        if norm != 0:
+            matrix[i, :] = matrix[i, :]/norm
         
     return matrix
 #TEST
