@@ -13,12 +13,12 @@ def clean_text(df, filename=None):
     This function tokenize, removes stop words, removes headers of text and applies stemming to the words to dataframe with column 'text'.
     """
     #remove header contained in brackets {}
-    for text in df['text']:
+    for text in df:
         re.sub(r"\{([^}]*)\}", "", text)
 
     for p in string.punctuation:
-        df['text'] = df['text'].str.replace(p, "")
-    df['text'] = df['text'].str.split(" ")
+        df = df.str.replace(p, "")
+    df = df.str.split(" ")
 
     stop_words = set(stopwords.words("english"))
     
@@ -32,7 +32,7 @@ def clean_text(df, filename=None):
         return [stemmer.stem(word.lower()) for word in text if ((word.lower() not in stop_words) and (len(word)>1) and (word.lower()))]
 
     
-    df['text'] = df['text'].apply(remove_stopwords_and_stem)
+    df = df.apply(remove_stopwords_and_stem)
     
     if filename:
         df.to_csv(filename)
@@ -44,7 +44,7 @@ def find_theme(text_df, theme_df):
     Returns the normalized vector with  number of words in theme_df that each text in text_df contains
     """
     encoding = np.zeros(len(text_df))
-    for i, text in enumerate(text_df['text']):
+    for i, text in enumerate(text_df):
         for _, word in enumerate(theme_df['text'].values):
             if word in text:
                 encoding[i] += 1
@@ -52,12 +52,12 @@ def find_theme(text_df, theme_df):
     encoding = encoding/max_val
     return encoding
 
-def theme_encoding(theme_list):
+def theme_encoding(plots, theme_list):
     try:
         df = pd.read_csv("stemmed_movie_summaries.csv")
-        df['text'] = df['text'].apply(lambda x: ast.literal_eval(x))
+        df = df['text'].apply(lambda x: ast.literal_eval(x))
     except FileNotFoundError:
-        df = pd.read_csv("data/original_data/plot_summaries.txt", delimiter = "\t", names=["id", "text"])
+        df = plots
         df = clean_text(df, "stemmed_movie_summaries.csv")
 
     theme_df = pd.DataFrame({'text':theme_list})
