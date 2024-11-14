@@ -1,12 +1,15 @@
 import pandas as pd
 import numpy as np
 import pandas as pd
+import nltk
 from nltk.corpus import stopwords
 import string
 from nltk.stem import PorterStemmer
 from nltk.stem.snowball import SnowballStemmer
 import re
 import ast
+
+nltk.download("stopwords")
 
 def clean_text(df, filename=None):
     """
