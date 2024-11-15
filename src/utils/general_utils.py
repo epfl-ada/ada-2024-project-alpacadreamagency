@@ -129,9 +129,9 @@ def heatmap_per_genre(MOVIES, genres, varx, vary, varz, stepsizex, stepsizey, ti
 
     for j, genre in enumerate(genres):
         df_filtered = MOVIES[MOVIES["new_genres"].apply(lambda x: genre in x)]
-        df_filtered[f'interval_y'] = df_filtered[vary].astype(float).apply(lambda x: f'{int(x/stepsizey)*stepsizey:.1f}-{int(x/stepsizey+1)*stepsizey:.1f}')
-        df_filtered[f'interval_x'] = df_filtered[varx].astype(float).apply(lambda x: f'{int(x/stepsizex)*stepsizex:.1f}-{int(x/stepsizex+1)*stepsizex:.1f}')
-        df_temp = pd.crosstab(df_filtered['interval_y'], df_filtered['interval_x'], values = df_filtered[varz],
+        df_filtered[f'interval_{vary}'] = df_filtered[vary].astype(float).apply(lambda x: f'{int(x/stepsizey)*stepsizey:.1f}-{int(x/stepsizey+1)*stepsizey:.1f}')
+        df_filtered[f'interval_{varx}'] = df_filtered[varx].astype(float).apply(lambda x: f'{int(x/stepsizex)*stepsizex:.1f}-{int(x/stepsizex+1)*stepsizex:.1f}')
+        df_temp = pd.crosstab(df_filtered[f'interval_{vary}'], df_filtered[f'interval_{varx}'], values = df_filtered[varz],
                     margins=False, aggfunc='median')
 
         ax = axes[j//4, j%4]
