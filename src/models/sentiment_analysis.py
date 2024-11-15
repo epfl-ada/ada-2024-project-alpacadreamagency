@@ -3,7 +3,6 @@ import pandas as pd
 
 def sentiment_analysis(MOVIES):
     """
-    Performs sentiment analysis on the 'plot' column of the MOVIES DataFrame and returns sentiment polarity scores.
+        Get the sentiment analysis of each plot: How possitive or negative is each move based on its plot.
     """
-
     return MOVIES['plot'].apply(lambda x: TextBlob(str(x)).sentiment.polarity if pd.notnull(x) else None)
