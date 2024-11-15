@@ -10,28 +10,41 @@ from sklearn.model_selection import train_test_split
 
 
 def get_model(feature_size, genre_size, layer_size):
+    """
+        Get the model factory. Here we build the structure of the neural network.
+        Input layer size: feature_size 
+        Hiden layers size: layer_size 
+        Output layer size: genre_size 
+    """
+    
     model = torch.nn.Sequential(
-    # Input layer
-    torch.nn.Linear(feature_size, layer_size),
-    torch.nn.ReLU(),
-    
-    # Hidden layers
-    torch.nn.Linear(layer_size, layer_size),
-    torch.nn.ReLU(),
-    torch.nn.Linear(layer_size, layer_size),
-    torch.nn.ReLU(),
-    torch.nn.Linear(layer_size, layer_size),
-    torch.nn.ReLU(),
-    
-    # Output layer
-    torch.nn.Linear(layer_size, genre_size),
-    torch.nn.Sigmoid() # To get probabilities
+        # Input layer
+        torch.nn.Linear(feature_size, layer_size),
+        torch.nn.ReLU(),
+        
+        # Hidden layers
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        
+        # Output layer
+        torch.nn.Linear(layer_size, genre_size),
+        torch.nn.Sigmoid() # To get probabilities
     )
 
     return model
 
 
 def train_model(batches_train, batches_test, model, optimizer, classification_threshold, device):
+    """
+        Train the model with the data to fit the target genre.
+        Get the score over all the training.
+        Return the model and the training history scores.
+    """
+    
     # Set model to training mode 
     model.train()
 
@@ -86,6 +99,11 @@ def train_model(batches_train, batches_test, model, optimizer, classification_th
 
 
 def get_output_hot(output, target, classification_threshold):
+    """
+        From the predicted values of the NN, get those predicted genre:
+            1 if the genre is chosen.
+            0 o.w.
+    """
     output_hot = (output > classification_threshold).int() # we have |N| x |genre| matrix
     correct = torch.sum(output_hot == target)
 
@@ -93,6 +111,10 @@ def get_output_hot(output, target, classification_threshold):
 
 
 def compute_avg_f_score(output_hot, target):
+    """
+        Compute the Precision, Recall and F-Score for the predictions 'output_hot'.
+    """
+    
     target = target.int()
     # print(f"{output_hot = }")
     # print(f"{target = }")
@@ -122,6 +144,9 @@ def compute_avg_f_score(output_hot, target):
 
 
 def get_training_batch(training_set, target_set, batch_size = 10):
+    """
+        From the splited data, get the batches of 'batch_size' size to train the model: Stochastic training.
+    """    
     assert len(training_set) == len(target_set), "Lists must be of equal length."
     
     batches_train = []
@@ -134,6 +159,10 @@ def get_training_batch(training_set, target_set, batch_size = 10):
 
 
 def test_model(model, testing_set, testing_target_set, classification_threshold):
+    """
+        Once the training is done, use the 'model' to predict the genre of the movies in 'testing_set'.
+        Also compute the Precision, Recall and F-Score of it.
+    """
     N = testing_set.shape[0] 
     Dy = testing_target_set.shape[1] 
     
