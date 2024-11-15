@@ -5,8 +5,6 @@ import nltk
 from nltk.corpus import stopwords
 import string
 from nltk.stem import PorterStemmer
-from nltk.stem.snowball import SnowballStemmer
-import re
 import ast
 import os
 
