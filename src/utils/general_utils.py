@@ -13,7 +13,9 @@ from sklearn.model_selection import train_test_split
 #### PLOTS ####
 
 def barplot_per_genre_over_years(MOVIES, genres, year_interval, variable, title):
-        
+    """
+    Creates barplot for each genre grouped in intervals of year_interval for some variable
+    """
     fig, axes = plt.subplots(10, 4, figsize=(30, 40), sharey = True)
     fig.delaxes(axes[9, 3])
 
@@ -49,6 +51,10 @@ def barplot_per_genre_over_years(MOVIES, genres, year_interval, variable, title)
 
 
 def barplot_means_per_genre(MOVIES, genres, variable, title, median=True, zeros=True):
+    """
+    Creates barplot with mean value of variable for each genre.
+    If median is True it takes the mean of medians over years.
+    """
     fig, ax = plt.subplots()
     fig.set_size_inches(10, 6)
     colors = sns.color_palette("tab20", len(genres))
@@ -84,6 +90,9 @@ def barplot_means_per_genre(MOVIES, genres, variable, title, median=True, zeros=
 
 
 def scatter_plot_per_genre(MOVIES, genre, variablex, variabley, title, zeros=True):
+    """
+    Creates scatter plot with regression line for each genre.
+    """
     
     fig, axes = plt.subplots(10, 4, figsize=(30, 40), sharey = True)
     fig.delaxes(axes[9, 3])
@@ -111,6 +120,9 @@ def scatter_plot_per_genre(MOVIES, genre, variablex, variabley, title, zeros=Tru
 
 
 def heatmap_per_genre(MOVIES, genres, varx, vary, varz, stepsizex, stepsizey, title):
+    """
+    Creates heatmap of 3 variables, where number of cells is decided by stepsizes
+    """
 
     fig, axes = plt.subplots(10, 4, figsize=(30, 40))
     fig.delaxes(axes[9, 3])
@@ -135,6 +147,10 @@ def heatmap_per_genre(MOVIES, genres, varx, vary, varz, stepsizex, stepsizey, ti
 
 
 def bar_per_genre(MOVIES, genres, column_names, title, xlabel, ylabel, legend_title, stacked=False):
+    """
+    Bar plot of some means of variables. If stacked is True return stacked barplot, 
+    else creates normal or grouped barplot.
+    """
     plot_df = pd.DataFrame(columns=column_names  + ['genre'])
     for _, genre in enumerate(genres):
         filtered_df = MOVIES[MOVIES["new_genres"].apply(lambda x: genre in x)]
@@ -158,6 +174,9 @@ def bar_per_genre(MOVIES, genres, column_names, title, xlabel, ylabel, legend_ti
 
 
 def lineplot_per_genre_over_years(MOVIES,  variables, title, xlabel, ylabel, legend_title, year_interval=10):
+    """
+    Creates line plot with one or more variables.
+    """
     span_of_years = year_interval
     MOVIES['release_decade'] = (MOVIES['release_year'] // span_of_years) * span_of_years
 
