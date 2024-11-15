@@ -17,23 +17,21 @@ In order to find more useful features that will help classify movies, we would l
 The TMDb dataset is a movie dataset that contains information about a million movies. We want to use it to enrich our original dataset with additional information that could be useful for our project like the budget of movies, age rating (whether it’s an adult movie or not), votes, etc. We will merge the datasets so that we only use the movies of the original dataset.
 
 ### Methods
-**Data wrangling**
-
+#####Data wrangling
 We load our databases and merge them by movie title and year so that we keep the movies from the CMU database with the additional information of the TMDb. We also fill in some missing values of the original dataset (runtime, revenue) with values from TMDb. We deal with duplicate movies and clean the data. 
 
 The original database made use of over 300 different genres, so we grouped them into 39 new genre categories that the model will use and predict from. In addition we get the hot-vector of the genre of each movie: 1 if the movie has the corresponding genre, 0 o.w.
 
-**Data enrichment**
-
+#####Data enrichment
 From the plot, and the characters we extract additional information that can, potentially, improve our model:
 - From the plots we get the sentiment analysis i.e. how positive or negative a movie is. And also related theme words; we get the proportion of words related to “love”, “death” and other topics that can enhance the model predictions.
 - From the characters we get how many Male and Female actors there are and their age (grouped into age ranges: 0-20, 20-30…).
 
-**Data analysis**
+#####Data analysis
 
 We make bar plots, scatter plots and heatmaps to visualize the relationship between movie genres and different movie characteristics. 
 
-**Genre Predictor Model**
+#####Genre Predictor Model
 
 After getting all the data and the new features, we can start creating the model to predict the movie genres.
 
