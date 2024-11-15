@@ -10,6 +10,10 @@ from sklearn.model_selection import train_test_split
 
 
 def load_movie_data(SETTINGS):
+    """
+    Loads movie data from different sources based on the data version specified in SETTINGS.
+    """
+
     if SETTINGS["DATA_VERSION"] == 0:
         column_names = [
             "wikipedia_movie_ID", 
@@ -164,6 +168,10 @@ def load_movie_data(SETTINGS):
 
 
 def load_character_data(SETTINGS):
+    """
+    Loads character data for movies from a TSV file based on the SETTINGS.
+    """
+
     column_names = [
     "Wikipedia movie ID",
     "Freebase movie ID",
@@ -185,6 +193,11 @@ def load_character_data(SETTINGS):
 
 
 def merge_plot_movies(SETTINGS, MOVIES):
+    """
+    Reads a file containing plot summaries, then merges the plot data with the existing movie dataset (MOVIES)
+    based on the ‘wikipedia_movie_ID’. 
+    """
+
     column_names = [
     "wikipedia_movie_ID",
     "plot"
@@ -197,6 +210,10 @@ def merge_plot_movies(SETTINGS, MOVIES):
 
 
 def remove_duplicate_movies(MOVIES):
+    """
+    Removes duplicate movie entries in the MOVIES DataFrame, keeping the best values for each duplicated entry.
+    """
+
     #get duplicated movies of MOVIES df
     dupes = MOVIES[MOVIES.duplicated(subset=['wikipedia_movie_ID'], keep=False)].sort_values(by="wikipedia_movie_ID", ascending=False)
     #keep highest value in columns: 
@@ -230,6 +247,10 @@ def remove_duplicate_movies(MOVIES):
 
 
 def recover_from_new_db(MOVIES):
+    """
+    Recovers missing data in the runtime, revenue and plot columns of the MOVIES DataFrame by filling gaps
+    with values from alternative columns.
+ 	"""
     MOVIES['runtime'] = MOVIES['runtime'].combine_first(MOVIES['runtime_new'])
     MOVIES['revenue'] = MOVIES['revenue'].combine_first(MOVIES['revenue_new'])
     MOVIES['plot'] = MOVIES['plot'].combine_first(MOVIES['overview'])
@@ -237,6 +258,9 @@ def recover_from_new_db(MOVIES):
     return MOVIES
 
 def clean_release_year(MOVIES):
+    """
+    Cleans the 'release_year' column in the MOVIES DataFrame by filtering out invalid or unrealistic years.
+	"""
     FIRST_MOVIE_YEAR = 1888
     ACTUAL_YEAR = 2024
 
@@ -250,6 +274,10 @@ def clean_release_year(MOVIES):
 
 
 def parse_features(MOVIES):
+    """
+    Parses and standardizes feature columns in the MOVIES DataFrame by converting specified columns to float type
+    and encoding the 'adult' column as a binary integer.
+    """
     MOVIES["budget"] = MOVIES["budget"].astype(float)
     MOVIES["popularity"] = MOVIES["popularity"].astype(float)
     MOVIES["revenue"] = MOVIES["revenue"].astype(float)
@@ -263,7 +291,14 @@ def parse_features(MOVIES):
 
 
 def gather_subgenres(MOVIES, NEW_GENRE):
+    """
+    Maps movie genres to broader categories based on subgenre definitions and creates hot-encoded genre indicators.
+    """
+
     def get_hot_genre(genre):
+        """
+        Creates hot-encoded genre indicators for genres.
+        """
         new_genre = []
         genre_hot = []
         
@@ -284,6 +319,10 @@ def gather_subgenres(MOVIES, NEW_GENRE):
 
 
 def count_characters(MOVIES, CHARACTER):
+    """
+    Adds a column to the MOVIES DataFrame representing the total number of characters per movie.
+    """
+
     total_character_counts = CHARACTER.groupby('Wikipedia movie ID').size().reset_index(name='Character Count')
 
     # We drop 'Character Count' column in MOVIES if it exists to avoid conflict during the merge
@@ -305,6 +344,11 @@ def count_characters(MOVIES, CHARACTER):
 
 
 def count_genders(CHARACTER):
+    """
+    Counts the occurrences of male, female, and unknown/unspecified actors for each movie.
+    """
+
+
     CHARACTER['Actor gender filled'] = CHARACTER['Actor gender'].fillna('N/A')
 
     # We use pivot_table to count occurrences of each gender per Wikipedia movie ID
@@ -324,10 +368,12 @@ def count_genders(CHARACTER):
 
     return actor_counts
 
-def merge_genders_movies(MOVIES, actor_counts):
 
-    # Step 3: Count male and female characters per movie based on `Wikipedia movie ID`
-    #gender_counts = CHARACTER.groupby(['Wikipedia movie ID', 'Actor gender']).size().unstack(fill_value=0)
+def merge_genders_movies(MOVIES, actor_counts):
+    """ 
+    Merges actor-gender counts into the MOVIES dataset.
+    """ 
+
 
     if 'Male actor count' in MOVIES.columns:
         MOVIES = MOVIES.drop(columns=['Male actor count'])
@@ -336,8 +382,6 @@ def merge_genders_movies(MOVIES, actor_counts):
     if 'N/A actor count' in MOVIES.columns:
         MOVIES = MOVIES.drop(columns=['N/A actor count'])
 
-
-    #gender_counts
 
     # Merge gender counts data back into the MOVIES DataFrame
     MOVIES = MOVIES.merge(actor_counts, left_on='wikipedia_movie_ID', right_on='Wikipedia movie ID', how='left')
@@ -358,6 +402,11 @@ def merge_genders_movies(MOVIES, actor_counts):
 
 
 def add_actor_per_age(MOVIES, CHARACTER):
+    """
+    Processes the CHARACTER DataFrame to categorize actors into age ranges based on their age at the movie release. 
+    It then counts the number of actors in each age range for every movie and merges this data into the MOVIES DataFrame. 
+    """
+
     def categorize_age(age):
         if age < 20:
             return '0-20'
