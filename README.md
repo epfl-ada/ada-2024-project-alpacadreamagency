@@ -68,28 +68,28 @@ These are tentative dates that we will try to follow so that our team achieves a
 
 
 ### How to use the library
-Tell us how the code is arranged, any explanations goes here.
-
+All results are shown in results.ipynb which runs code contained in scr directory for data processing and ML models. Make sure to download all dependencies needed for the project and all relevant files. Below is a schema of the project structure.
 
 ## Project Structure
+The data is stored locally as the files are too large. The directory structure of the project looks like this (only for files in use):
+- **[`src/`](./src/)**: Contains all files with functions for models and utility used in the project
+  - **[`models/`](./src/models)** Contains files related to functions used for the model and ml
+    - **[`crossvalidation/`](./src/models/crossvalidation.py)** Functions for crossvalidation
+    - **[`neural_network/`](./src/models/neural_networks.py)** Main file for neural network model
+    - **[`sentiment_analysis/`](./src/models/sentiment_analysis.py)** Function for sentiment analysis
+    - **[`theme_encoding/`](./src/models/theme_encoding.py)** Functions to encode themes into vectors
+  - **[`utils/`](./src/utils)**
+    - **[`data_utils/`](./src/utils/data_utils.py)** Functions for data loading into notebook and data wrangling
+    - **[`general_utils/`](./src/utils/general_utils.py)** Functions for general utilities such as plotting functions
 
-The directory structure of new project looks like this:
+- **[`results/`](./results.ipynb)**: Main run file for neural network, data handling and data analysis
 
-```
-├── data                        <- Project data files
-│
-├── src                         <- Source code
-│   ├── data                            <- Data directory
-│   ├── models                          <- Model directory
-│   ├── utils                           <- Utility directory
-│   ├── scripts                         <- Shell scripts
-│
-├── tests                       <- Tests of any kind
-│
-├── results.ipynb               <- a well-structured notebook showing the results
-│
-├── .gitignore                  <- List of files ignored by git
-├── pip_requirements.txt        <- File for installing python dependencies
-└── README.md
-```
+- **[`categories/`](./categories.csv)**: Stores new genres (categories) and corresponding subgenres
 
+- **[`movies_predicted_genre/`](./movies_predicted_genre.csv)**: Stores result of neural network
+
+- **[`stemmed_movie_summaries/`](./stemmed_movie_summaries.csv)**: Stores cleaned movie summaries
+
+- **[`gitignore/`](./.gitignore)**: List of files ignored by git
+
+- **[`pip_requirements/`](./pip_requirements.txt)**: File for installing python dependencies
