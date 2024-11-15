@@ -16,12 +16,6 @@ def get_model(feature_size, genre_size, layer_size):
         Hiden layers size: layer_size 
         Output layer size: genre_size 
     """
-    
-
-    """
-    Builds a neural network model for multi-label classification of movie genres.
-    """
-
     model = torch.nn.Sequential(
         # Input layer
         torch.nn.Linear(feature_size, layer_size),
@@ -45,17 +39,10 @@ def get_model(feature_size, genre_size, layer_size):
 
 def train_model(batches_train, batches_test, model, optimizer, classification_threshold, device):
     """
-        Train the model with the data to fit the target genre.
+        Trains a neural network model for multi-label genre classification and evaluates the model on test batches, 
         Get the score over all the training.
         Return the model and the training history scores.
     """
-    
-    """
-    Trains a neural network model for multi-label genre classification and evaluates the model on test batches, 
-    tracking performance metrics like loss, accuracy, F-score, precision, and recall.
-    """
-
-
     # Set model to training mode 
     model.train()
 
@@ -112,13 +99,8 @@ def train_model(batches_train, batches_test, model, optimizer, classification_th
 def get_output_hot(output, target, classification_threshold):
     """
         From the predicted values of the NN, get those predicted genre:
-            1 if the genre is chosen.
-            0 o.w.
-    """
-    """
-    Takes output probabilities from the neural network and applies a 
-    classification threshold to generate binary predictions (hot-encoded output). 
-    It also computes the number of correct predictions by comparing the binary predictions with the target labels.
+            1 if the genre is chosen: > 50%.
+            0 o.w:  <= 50%
     """
 
     output_hot = (output > classification_threshold).int() # we have |N| x |genre| matrix
@@ -131,12 +113,6 @@ def compute_avg_f_score(output_hot, target):
     """
         Compute the Precision, Recall and F-Score for the predictions 'output_hot'.
     """
-    
-    """
-    Calculates the average F-score, precision, and recall for multi-label classification.
-    """
-
-
     target = target.int()
     # print(f"{output_hot = }")
     # print(f"{target = }")
@@ -166,11 +142,6 @@ def compute_avg_f_score(output_hot, target):
 
 
 def get_training_batch(training_set, target_set, batch_size = 10):
-
-    """
-    Generates batches of training and target data for model training.
-    """
-
     """
         From the splited data, get the batches of 'batch_size' size to train the model: Stochastic training.
     """    
@@ -187,11 +158,9 @@ def get_training_batch(training_set, target_set, batch_size = 10):
 
 def test_model(model, testing_set, testing_target_set, classification_threshold):
     """
-    Evaluates the performance of a trained neural network model on a test dataset. Also computes performance metrics and prints the results.
-    """
-
-    """
-        Once the training is done, use the 'model' to predict the genre of the movies in 'testing_set'.
+       
+        Once the training is done, Evaluates the performance of a trained neural network model on a test dataset:
+        use the 'model' to predict the genre of the movies in 'testing_set'.
         Also compute the Precision, Recall and F-Score of it.
     """
     N = testing_set.shape[0] 
