@@ -37,7 +37,7 @@ def get_model(feature_size, genre_size, layer_size):
     return model
 
 
-def train_model(batches_train, batches_test, model, optimizer, classification_threshold, device):
+def train_model(batches_train, batches_test, model, optimizer, criterion, epoch_num, classification_threshold, device):
     """
         Trains a neural network model for multi-label genre classification and evaluates the model on test batches, 
         Get the score over all the training.
@@ -51,46 +51,44 @@ def train_model(batches_train, batches_test, model, optimizer, classification_th
     f_score_history = []
     precision_history = []
     recall_history = []
-    # Change the loop to get batch_idx, data and target from train_loader
-    for sample_i, (data, target) in enumerate(zip(batches_train, batches_test)):
-        target = target.squeeze(1)
-        N = data.shape[0] 
-        Dy = target.shape[1] # Number of possible genre 
-        
-        # Move the data to the device
-        data = data.float().to(device)
-        target = target.float().to(device)
-        
-        optimizer.zero_grad()
-        output = model(data)
-        
-        loss = torch.nn.BCELoss()(output, target)
-        loss_float = loss.item()
-        # Backpropagate loss & Perform an optimizer step
-        loss.backward()
-        optimizer.step()
-        
-        
-        # Compute accuracy and loss of the batch
-        output_hot, correct = get_output_hot(output, target, classification_threshold)
-        accuracy = correct.item() / (N * Dy) 
-        f_score, precision, recall = compute_avg_f_score(output_hot, target)
-        
-        accuracy_history.append(accuracy)
-        loss_history.append(loss_float)
-        f_score_history.append(f_score)
-        precision_history.append(precision)
-        recall_history.append(recall)
-        
-        del data
-        del target
-        
-        if sample_i % (1000 // N) == 0: # Every 1000 samples
-            print(f'Batch {loss_float = :.4f}')
-            print(f'Batch {accuracy = :.4f}')
-            print(f'Batch {f_score = :.4f}')
-            print(f'Batch {precision = :.4f}')
-            print(f'Batch {recall = :.4f}')
+    for epoch in range(epoch_num):
+        for sample_i, (data, target) in enumerate(zip(batches_train, batches_test)):
+            target = target.squeeze(1)
+            N = data.shape[0] 
+            Dy = target.shape[1] # Number of possible genre 
+            
+            # Move the data to the device
+            data = data.float().to(device)
+            target = target.float().to(device)
+            
+            optimizer.zero_grad()
+            output = model(data)
+            
+            loss = criterion(output, target)
+            loss_float = loss.item()
+            # Backpropagate loss & Perform an optimizer step
+            loss.backward()
+            optimizer.step()
+                                
+            if sample_i % (1000 // N) == 0: # Every 1000 samples
+                # Compute accuracy and loss of the batch
+                output_hot, correct = get_output_hot(output, target, classification_threshold)
+                accuracy = correct.item() / (N * Dy) 
+                f_score, precision, recall = compute_avg_f_score(output_hot, target)
+                
+                accuracy_history.append(accuracy)
+                loss_history.append(loss_float)
+                f_score_history.append(f_score)
+                precision_history.append(precision)
+                recall_history.append(recall)
+                print(f'Epoch = {epoch}, Batch {loss_float = :.4f}')
+                print(f'Epoch = {epoch}, Batch {accuracy = :.4f}')
+                print(f'Epoch = {epoch}, Batch {f_score = :.4f}')
+                print(f'Epoch = {epoch}, Batch {precision = :.4f}')
+                print(f'Epoch = {epoch}, Batch {recall = :.4f}')
+                
+            del data
+            del target
     # print(f"{loss_history = }, {accuracy_history = }")
     torch.cuda.empty_cache()
     return model, loss_history, accuracy_history, f_score_history, precision_history, recall_history
