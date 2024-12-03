@@ -1,174 +1,84 @@
-# just-the-docs-template
+<!-- markdownlint-disable-next-line -->
+<div align="center">
 
-This is a *bare-minimum* template to create a [Jekyll] site that:
+  <!-- markdownlint-disable-next-line -->
+  # Chirpy Jekyll Theme
 
-- uses the [Just the Docs] theme;
-- can be built and published on [GitHub Pages];
-- can be built and previewed locally, and published on other platforms.
+  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
 
-More specifically, the created site:
+  [![CI](https://img.shields.io/github/actions/workflow/status/cotes2020/jekyll-theme-chirpy/ci.yml?logo=github)][ci]&nbsp;
+  [![Codacy Badge](https://img.shields.io/codacy/grade/4e556876a3c54d5e8f2d2857c4f43894?logo=codacy)][codacy]&nbsp;
+  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy?color=goldenrod)][license]&nbsp;
+  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?&logo=RubyGems&logoColor=ghostwhite&label=gem&color=orange)][gem]&nbsp;
+  [![Open in Dev Containers](https://img.shields.io/badge/Dev_Containers-Open-deepskyblue?logo=linuxcontainers)][open-container]
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem;
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages.
+  [**Live Demo** →][demo]
 
-To get started with creating a site, simply:
+  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+</div>
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](#hosting-your-docs-from-an-existing-project-repo).
+## Features
 
-After completing the creation of your new site on GitHub, update it as needed:
+- Dark Theme
+- Localized UI language
+- Pinned Posts on Home Page
+- Hierarchical Categories
+- Trending Tags
+- Table of Contents
+- Last Modified Date
+- Syntax Highlighting
+- Mathematical Expressions
+- Mermaid Diagrams & Flowcharts
+- Dark Mode Images
+- Embed Media
+- Comment Systems
+- Built-in Search
+- Atom Feeds
+- PWA
+- Web Analytics
+- SEO & Performance Optimization
 
-## Replace the content of the template pages
+## Documentation
 
-Update the following files to your own content:
+To learn how to use, develop, and upgrade the project, please refer to the [Wiki][wiki].
 
-- `index.md` (your new home page)
-- `README.md` (information for those who access your site repo on GitHub)
+## Contributing
 
-## Changing the version of the theme and/or Jekyll
+Contributions (_pull requests_, _issues_, and _discussions_) are what make the open-source community such an amazing place
+to learn, inspire, and create. Any contributions you make are greatly appreciated.
+For details, see the "[Contributing Guidelines][contribute-guide]".
 
-Simply edit the relevant line(s) in the `Gemfile`.
+## Credits
 
-## Adding a plugin
+### Contributors
 
-The Just the Docs theme automatically includes the [`jekyll-seo-tag`] plugin.
+Thanks to [all the contributors][contributors] involved in the development of the project!
 
-To add an extra plugin, you need to add it in the `Gemfile` *and* in `_config.yml`. For example, to add [`jekyll-default-layout`]:
+[![all-contributors](https://contrib.rocks/image?repo=cotes2020/jekyll-theme-chirpy&columns=16)][contributors]
+<sub> — Made with [contrib.rocks](https://contrib.rocks)</sub>
 
-- Add the following to your site's `Gemfile`:
+### Third-Party Assets
 
-  ```ruby
-  gem "jekyll-default-layout"
-  ```
+This project is built on the [Jekyll][jekyllrb] ecosystem and some [great libraries][lib], and is developed using [VS Code][vscode] as well as tools provided by [JetBrains][jetbrains] under a non-commercial open-source software license.
 
-- And add the following to your site's `_config.yml`:
+The avatar and favicon for the project's website are from [ClipartMAX][clipartmax].
 
-  ```yaml
-  plugins:
-    - jekyll-default-layout
-  ```
+## License
 
-Note: If you are using a Jekyll version less than 3.5.0, use the `gems` key instead of `plugins`.
+This project is published under [MIT License][license].
 
-## Publishing your site on GitHub Pages
-
-1.  If your created site is `YOUR-USERNAME/YOUR-SITE-NAME`, update `_config.yml` to:
-
-    ```yaml
-    title: YOUR TITLE
-    description: YOUR DESCRIPTION
-    theme: just-the-docs
-
-    url: https://YOUR-USERNAME.github.io/YOUR-SITE-NAME
-
-    aux_links: # remove if you don't want this link to appear on your pages
-      Template Repository: https://github.com/YOUR-USERNAME/YOUR-SITE-NAME
-    ```
-
-2.  Push your updated `_config.yml` to your site on GitHub.
-
-3.  In your newly created repo on GitHub:
-    - go to the `Settings` tab -> `Pages` -> `Build and deployment`, then select `Source`: `GitHub Actions`.
-    - if there were any failed Actions, go to the `Actions` tab and click on `Re-run jobs`.
-
-## Building and previewing your site locally
-
-Assuming [Jekyll] and [Bundler] are installed on your computer:
-
-1.  Change your working directory to the root directory of your site.
-
-2.  Run `bundle install`.
-
-3.  Run `bundle exec jekyll serve` to build your site and preview it at `localhost:4000`.
-
-    The built site is stored in the directory `_site`.
-
-## Publishing your built site on a different platform
-
-Just upload all the files in the directory `_site`.
-
-## Customization
-
-You're free to customize sites that you create with this template, however you like!
-
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
-
-## Hosting your docs from an existing project repo
-
-You might want to maintain your docs in an existing project repo. Instead of creating a new repo using the [just-the-docs template](https://github.com/just-the-docs/just-the-docs-template), you can copy the template files into your existing repo and configure the template's Github Actions workflow to build from a `docs` directory. You can clone the template to your local machine or download the `.zip` file to access the files.
-
-### Copy the template files
-
-1.  Create a `.github/workflows` directory at your project root if your repo doesn't already have one. Copy the `pages.yml` file into this directory. GitHub Actions searches this directory for workflow files.
-
-2.  Create a `docs` directory at your project root and copy all remaining template files into this directory.
-
-### Modify the GitHub Actions workflow
-
-The GitHub Actions workflow that builds and deploys your site to Github Pages is defined by the `pages.yml` file. You'll need to edit this file to that so that your build and deploy steps look to your `docs` directory, rather than the project root.
-
-1.  Set the default `working-directory` param for the build job.
-
-    ```yaml
-    build:
-      runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: docs
-    ```
-
-2.  Set the `working-directory` param for the Setup Ruby step.
-
-    ```yaml
-    - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-          cache-version: 0
-          working-directory: '${{ github.workspace }}/docs'
-    ```
-
-3.  Set the path param for the Upload artifact step:
-
-    ```yaml
-    - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/_site/
-    ```
-
-4.  Modify the trigger so that only changes within the `docs` directory start the workflow. Otherwise, every change to your project (even those that don't affect the docs) would trigger a new site build and deploy.
-
-    ```yaml
-    on:
-      push:
-        branches:
-          - "main"
-        paths:
-          - "docs/**"
-    ```
-
-## Licensing and Attribution
-
-This repository is licensed under the [MIT License]. You are generally free to reuse or extend upon this code as you see fit; just include the original copy of the license (which is preserved when you "make a template"). While it's not necessary, we'd love to hear from you if you do use this template, and how we can improve it for future use!
-
-The deployment GitHub Actions workflow is heavily based on GitHub's mixed-party [starter workflows]. A copy of their MIT License is available in [actions/starter-workflows].
-
-----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
-[Jekyll]: https://jekyllrb.com
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[Bundler]: https://bundler.io
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
-[`jekyll-default-layout`]: https://github.com/benbalter/jekyll-default-layout
-[`jekyll-seo-tag`]: https://jekyll.github.io/jekyll-seo-tag
-[MIT License]: https://en.wikipedia.org/wiki/MIT_License
-[starter workflows]: https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
-[actions/starter-workflows]: https://github.com/actions/starter-workflows/blob/main/LICENSE
+[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
+[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
+[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
+[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
+[open-container]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/cotes2020/jekyll-theme-chirpy
+[jekyllrb]: https://jekyllrb.com/
+[clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
+[demo]: https://cotes2020.github.io/chirpy-demo/
+[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
+[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
+[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
+[lib]: https://github.com/cotes2020/chirpy-static-assets
+[vscode]: https://code.visualstudio.com/
+[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
