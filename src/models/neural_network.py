@@ -182,3 +182,39 @@ def test_model(model, testing_set, testing_target_set, classification_threshold)
     
     return output_hot
     
+def print_training_results(loss_history, acc_history, f_score_history, precision_history, recall_history):
+    batch_indices = [i for i in range(len(loss_history))]
+    plt.figure(figsize=(18, 12)) 
+
+    plt.subplot(3, 2, 1)
+    plt.plot(batch_indices, loss_history)
+    plt.xlabel("Batch")
+    plt.ylabel("Loss")
+    plt.title("Training Loss per Batch")
+
+    plt.subplot(3, 2, 2)
+    plt.plot(batch_indices, acc_history)
+    plt.xlabel("Batch")
+    plt.ylabel("Accuracy")
+    plt.title("Training Accuracy per Batch")
+
+    plt.subplot(3, 2, 3)
+    plt.plot(batch_indices, precision_history)
+    plt.xlabel("Batch")
+    plt.ylabel("Precision")
+    plt.title("Training Precision per Batch")
+
+    plt.subplot(3, 2, 4)
+    plt.plot(batch_indices, recall_history)
+    plt.xlabel("Batch")
+    plt.ylabel("Recall")
+    plt.title("Training Recall per Batch")
+
+    plt.subplot(3, 2, 5)
+    plt.plot(batch_indices, f_score_history)
+    plt.xlabel("Batch")
+    plt.ylabel("F-Score")
+    plt.title("Training F-Score per Batch")
+
+    plt.tight_layout()
+    plt.show()    
