@@ -29,6 +29,15 @@ def get_model(feature_size, genre_size, layer_size):
         torch.nn.Linear(layer_size, layer_size),
         torch.nn.ReLU(),
         
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        
         # Output layer
         torch.nn.Linear(layer_size, genre_size),
         torch.nn.Sigmoid() # To get probabilities
@@ -191,30 +200,35 @@ def print_training_results(loss_history, acc_history, f_score_history, precision
     plt.xlabel("Batch")
     plt.ylabel("Loss")
     plt.title("Training Loss per Batch")
+    plt.ylim(0.0, 1.0)
 
     plt.subplot(3, 2, 2)
     plt.plot(batch_indices, acc_history)
     plt.xlabel("Batch")
     plt.ylabel("Accuracy")
     plt.title("Training Accuracy per Batch")
+    plt.ylim(0.0, 1.0)
 
     plt.subplot(3, 2, 3)
     plt.plot(batch_indices, precision_history)
     plt.xlabel("Batch")
     plt.ylabel("Precision")
     plt.title("Training Precision per Batch")
+    plt.ylim(0.0, 1.0)
 
     plt.subplot(3, 2, 4)
     plt.plot(batch_indices, recall_history)
     plt.xlabel("Batch")
     plt.ylabel("Recall")
     plt.title("Training Recall per Batch")
+    plt.ylim(0.0, 1.0)
 
     plt.subplot(3, 2, 5)
     plt.plot(batch_indices, f_score_history)
     plt.xlabel("Batch")
     plt.ylabel("F-Score")
     plt.title("Training F-Score per Batch")
+    plt.ylim(0.0, 1.0)
 
     plt.tight_layout()
     plt.show()    
