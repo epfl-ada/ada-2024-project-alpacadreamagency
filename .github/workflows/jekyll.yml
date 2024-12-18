@@ -11,27 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
-      # Set up Ruby with a specific version (ensure it's >= 3.0)
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0.7'  # Set Ruby version to 3.0 or higher
-
-      # Check Ruby version to verify it's 3.0 or higher
-      - name: Check Ruby version
-        run: |
-          ruby -v  # This will print the Ruby version
-          which ruby  # This will show the full path of the ruby executable being used
-
-
-      - name: Install dependencies
-        run: |
-          gem install bundler
-          bundle install --no-cache  # Force a fresh installation without using cache
- 
-        
       - uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: 'gh-pages'
-
