@@ -17,21 +17,24 @@ current: home
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
+            
+            {% raw %}
             # Prologue
+
             ## Setting the scene...
+
             It’s a saturday night and you are scrolling through movies on Netflix...
-            <!-- Continue the rest of the story in markdown format -->
+            
+            {% endraw %}
+            
         </div>
     </div>
     <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
-<main id="content" class="content" role="main">
-    <h1 class="page-title">{{ site.name }}</h1>
-    <h2 class="page-description">{{ site.description }}</h2>
 
-    ## Sections:
+
+## Sections:
     - [Data](#data)
     - [Analysis](#analysis)
     - [Results](#results)
-</main>
