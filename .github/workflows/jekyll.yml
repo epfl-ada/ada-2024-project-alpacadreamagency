@@ -15,11 +15,14 @@ jobs:
       # Set up Ruby with a specific version (ensure it's >= 3.0)
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'  # Set Ruby version to 3.0 or higher
+          ruby-version: '3.0.7'  # Set Ruby version to 3.0 or higher
 
       # Check Ruby version to verify it's 3.0 or higher
       - name: Check Ruby version
-        run: ruby -v
+        run: |
+          ruby -v  # This will print the Ruby version
+          which ruby  # This will show the full path of the ruby executable being used
+
 
       # Update RubyGems to the required version (>= 3.3.22)
       - name: Update RubyGems
