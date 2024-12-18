@@ -164,7 +164,7 @@ td, th{ padding: 0; }
     content: "\f609";
     position: fixed; /* Change to 'fixed' to keep it fixed in place on screen */
     top: 10px; /* Adjust the distance from the top of the page */
-    left: 10px; /* Adjust the distance from the left of the page */
+    right: 10px; /* Adjust the distance from the left of the page */
 }
 /*
     IMPORTANT: When making any changes to the icon font, be sure to increment
@@ -870,7 +870,7 @@ body.nav-opened .nav {
     display: inline-block;
     position: fixed; /* Change to 'fixed' to keep it fixed in place on screen */
     top: 10px; /* Adjust the distance from the top of the page */
-    left: 10px; /* Adjust the distance from the left of the page */
+    right: 10px; /* Adjust the distance from the left of the page */
     height: 38px;
     padding: 0 15px;
     border-style: solid;
@@ -891,7 +891,7 @@ body.nav-opened .nav {
     margin-right: 6px;
     position: fixed; /* Change to 'fixed' to keep it fixed in place on screen */
     top: 10px; /* Adjust the distance from the top of the page */
-    left: 10px; /* Adjust the distance from the left of the page */
+    right: 10px; /* Adjust the distance from the left of the page */
 }
 
 .menu-button:hover {
