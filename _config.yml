@@ -7,8 +7,8 @@ paginate: 5
 language: 'en-uk'
 
 # Website info
-name: 'Finding The Way Home'
-description: "A beautiful narrative written with the world's most elegant publishing platform. The story begins here."
+name: 'ADA story'
+description: "Predicting genre"
 
 short_url: 'https://github.com/epfl-ada/ada-2024-project-alpacadreamagency'
 google_analytics: UA-69281367-1
