@@ -11,17 +11,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
+      # Set up Ruby with a specific version (ensure it's >= 3.0)
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0'  # Set Ruby version to 3.0 or higher
-          bundler: true   
+
+      # Check Ruby version to verify it's 3.0 or higher
+      - name: Check Ruby version
+        run: ruby -v
+
+      # Update RubyGems to the required version (>= 3.3.22)
       - name: Update RubyGems
         run: |
-          gem update --system 3.3.22  # Ensure RubyGems version is >= 3.3.22
+          gem update --system 3.3.22
 
+      # Install bundler
+      - name: Install Bundler
+        run: gem install bundler
+
+      # Install dependencies
       - name: Install dependencies
-        run: |
-          bundle install
+        run: bundle install
+        
       - uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
