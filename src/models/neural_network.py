@@ -29,6 +29,15 @@ def get_model(feature_size, genre_size, layer_size):
         torch.nn.Linear(layer_size, layer_size),
         torch.nn.ReLU(),
         
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        torch.nn.Linear(layer_size, layer_size),
+        torch.nn.ReLU(),
+        
         # Output layer
         torch.nn.Linear(layer_size, genre_size),
         torch.nn.Sigmoid() # To get probabilities
@@ -37,7 +46,7 @@ def get_model(feature_size, genre_size, layer_size):
     return model
 
 
-def train_model(batches_train, batches_test, model, optimizer, classification_threshold, device):
+def train_model(batches_train, batches_test, model, optimizer, criterion, epoch_num, classification_threshold, device):
     """
         Trains a neural network model for multi-label genre classification and evaluates the model on test batches, 
         Get the score over all the training.
@@ -51,46 +60,44 @@ def train_model(batches_train, batches_test, model, optimizer, classification_th
     f_score_history = []
     precision_history = []
     recall_history = []
-    # Change the loop to get batch_idx, data and target from train_loader
-    for sample_i, (data, target) in enumerate(zip(batches_train, batches_test)):
-        target = target.squeeze(1)
-        N = data.shape[0] 
-        Dy = target.shape[1] # Number of possible genre 
-        
-        # Move the data to the device
-        data = data.float().to(device)
-        target = target.float().to(device)
-        
-        optimizer.zero_grad()
-        output = model(data)
-        
-        loss = torch.nn.BCELoss()(output, target)
-        loss_float = loss.item()
-        # Backpropagate loss & Perform an optimizer step
-        loss.backward()
-        optimizer.step()
-        
-        
-        # Compute accuracy and loss of the batch
-        output_hot, correct = get_output_hot(output, target, classification_threshold)
-        accuracy = correct.item() / (N * Dy) 
-        f_score, precision, recall = compute_avg_f_score(output_hot, target)
-        
-        accuracy_history.append(accuracy)
-        loss_history.append(loss_float)
-        f_score_history.append(f_score)
-        precision_history.append(precision)
-        recall_history.append(recall)
-        
-        del data
-        del target
-        
-        if sample_i % (1000 // N) == 0: # Every 1000 samples
-            print(f'Batch {loss_float = :.4f}')
-            print(f'Batch {accuracy = :.4f}')
-            print(f'Batch {f_score = :.4f}')
-            print(f'Batch {precision = :.4f}')
-            print(f'Batch {recall = :.4f}')
+    for epoch in range(epoch_num):
+        for sample_i, (data, target) in enumerate(zip(batches_train, batches_test)):
+            target = target.squeeze(1)
+            N = data.shape[0] 
+            Dy = target.shape[1] # Number of possible genre 
+            
+            # Move the data to the device
+            data = data.float().to(device)
+            target = target.float().to(device)
+            
+            optimizer.zero_grad()
+            output = model(data)
+            
+            loss = criterion(output, target)
+            loss_float = loss.item()
+            # Backpropagate loss & Perform an optimizer step
+            loss.backward()
+            optimizer.step()
+                                
+            if sample_i % (1000 // N) == 0: # Every 1000 samples
+                # Compute accuracy and loss of the batch
+                output_hot, correct = get_output_hot(output, target, classification_threshold)
+                accuracy = correct.item() / (N * Dy) 
+                f_score, precision, recall = compute_avg_f_score(output_hot, target)
+                
+                accuracy_history.append(accuracy)
+                loss_history.append(loss_float)
+                f_score_history.append(f_score)
+                precision_history.append(precision)
+                recall_history.append(recall)
+                print(f'Epoch = {epoch}, Batch {loss_float = :.4f}')
+                print(f'Epoch = {epoch}, Batch {accuracy = :.4f}')
+                print(f'Epoch = {epoch}, Batch {f_score = :.4f}')
+                print(f'Epoch = {epoch}, Batch {precision = :.4f}')
+                print(f'Epoch = {epoch}, Batch {recall = :.4f}')
+                
+            del data
+            del target
     # print(f"{loss_history = }, {accuracy_history = }")
     torch.cuda.empty_cache()
     return model, loss_history, accuracy_history, f_score_history, precision_history, recall_history
@@ -184,3 +191,44 @@ def test_model(model, testing_set, testing_target_set, classification_threshold)
     
     return output_hot
     
+def print_training_results(loss_history, acc_history, f_score_history, precision_history, recall_history):
+    batch_indices = [i for i in range(len(loss_history))]
+    plt.figure(figsize=(18, 12)) 
+
+    plt.subplot(3, 2, 1)
+    plt.plot(batch_indices, loss_history)
+    plt.xlabel("Batch")
+    plt.ylabel("Loss")
+    plt.title("Training Loss per Batch")
+    plt.ylim(0.0, 1.0)
+
+    plt.subplot(3, 2, 2)
+    plt.plot(batch_indices, acc_history)
+    plt.xlabel("Batch")
+    plt.ylabel("Accuracy")
+    plt.title("Training Accuracy per Batch")
+    plt.ylim(0.0, 1.0)
+
+    plt.subplot(3, 2, 3)
+    plt.plot(batch_indices, precision_history)
+    plt.xlabel("Batch")
+    plt.ylabel("Precision")
+    plt.title("Training Precision per Batch")
+    plt.ylim(0.0, 1.0)
+
+    plt.subplot(3, 2, 4)
+    plt.plot(batch_indices, recall_history)
+    plt.xlabel("Batch")
+    plt.ylabel("Recall")
+    plt.title("Training Recall per Batch")
+    plt.ylim(0.0, 1.0)
+
+    plt.subplot(3, 2, 5)
+    plt.plot(batch_indices, f_score_history)
+    plt.xlabel("Batch")
+    plt.ylabel("F-Score")
+    plt.title("Training F-Score per Batch")
+    plt.ylim(0.0, 1.0)
+
+    plt.tight_layout()
+    plt.show()    

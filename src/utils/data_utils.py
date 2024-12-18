@@ -7,14 +7,14 @@ from collections import Counter
 import random
 import torch
 from sklearn.model_selection import train_test_split
+from ..utils.settings import *
 
-
-def load_movie_data(SETTINGS):
+def load_movie_data():
     """
     Loads movie data from different sources based on the data version specified in SETTINGS.
     """
 
-    if SETTINGS["DATA_VERSION"] == 0:
+    if Settings.DATA_VERSION == 0:
         column_names = [
             "wikipedia_movie_ID", 
             "freebase_movie_ID", 
@@ -26,13 +26,13 @@ def load_movie_data(SETTINGS):
             "countries", 
             "genres"
         ]
-        MOVIES = pd.read_csv(f'{SETTINGS["ORIGINAL_DATA_RUTE"]}movie.metadata.tsv', sep='\t', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
+        MOVIES = pd.read_csv(f'{Settings.ORIGINAL_DATA_RUTE}movie.metadata.tsv', sep='\t', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
         
-    elif SETTINGS["DATA_VERSION"] == 1: 
-        MOVIES = pd.read_csv(f'{SETTINGS["DATA_RUTE"]}TMDB_movie_dataset_v11.csv')
+    elif Settings.DATA_VERSION == 1: 
+        MOVIES = pd.read_csv(f'{Settings.DATA_RUTE}TMDB_movie_dataset_v11.csv')
         MOVIES = MOVIES.drop(columns=["homepage", "poster_path", "backdrop_path"])
         
-    elif SETTINGS["DATA_VERSION"] == 2: 
+    elif Settings.DATA_VERSION == 2: 
         column_names = [
             "name", 
             "rating", 
@@ -50,11 +50,11 @@ def load_movie_data(SETTINGS):
             "company",
             "runtime", 
         ]
-        MOVIES = pd.read_csv(f'{SETTINGS["DATA_RUTE"]}movies.csv', names=column_names)
+        MOVIES = pd.read_csv(f'{Settings.DATA_RUTE}movies.csv', names=column_names)
         MOVIES = MOVIES.drop(columns=["director", "writer", "star"])
         MOVIES = MOVIES.drop(MOVIES.index[0])
         
-    elif SETTINGS["DATA_VERSION"] == 3:
+    elif Settings.DATA_VERSION == 3:
         column_names = [
             "wikipedia_movie_ID", 
             "freebase_movie_ID", 
@@ -66,7 +66,7 @@ def load_movie_data(SETTINGS):
             "countries", 
             "genres"
         ]
-        MOVIES_ORIGINAL = pd.read_csv(f'{SETTINGS["ORIGINAL_DATA_RUTE"]}movie.metadata.tsv', sep='\t', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
+        MOVIES_ORIGINAL = pd.read_csv(f'{Settings.ORIGINAL_DATA_RUTE}movie.metadata.tsv', sep='\t', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
         
         column_names = [
             'id_new', 
@@ -94,7 +94,7 @@ def load_movie_data(SETTINGS):
             'spoken_languages',
             'keywords'
         ]
-        MOVIES_NEW = pd.read_csv(f'{SETTINGS["DATA_RUTE"]}TMDB_movie_dataset_v11.csv', sep=',', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
+        MOVIES_NEW = pd.read_csv(f'{Settings.DATA_RUTE}TMDB_movie_dataset_v11.csv', sep=',', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
         
         
             
@@ -114,7 +114,7 @@ def load_movie_data(SETTINGS):
             'production_countries', 'spoken_languages', 'keywords', "homepage", "poster_path", "backdrop_path"
         ])    
         
-    elif SETTINGS["DATA_VERSION"] == 4:
+    elif Settings.DATA_VERSION== 4:
         column_names = [
             "wikipedia_movie_ID", 
             "freebase_movie_ID", 
@@ -126,7 +126,7 @@ def load_movie_data(SETTINGS):
             "countries", 
             "genres"
         ]
-        MOVIES_ORIGINAL = pd.read_csv(f'{SETTINGS["ORIGINAL_DATA_RUTE"]}movie.metadata.tsv', sep='\t', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
+        MOVIES_ORIGINAL = pd.read_csv(f'{Settings.ORIGINAL_DATA_RUTE}movie.metadata.tsv', sep='\t', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
         
         column_names = [
             "names", 
@@ -143,7 +143,7 @@ def load_movie_data(SETTINGS):
             "country"
         ]
 
-        MOVIES_NEW = pd.read_csv(f'{SETTINGS["DATA_RUTE"]}imdb_movies.csv', sep=',', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
+        MOVIES_NEW = pd.read_csv(f'{Settings.DATA_RUTE}imdb_movies.csv', sep=',', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
         
         
             
@@ -167,7 +167,7 @@ def load_movie_data(SETTINGS):
     return MOVIES
 
 
-def load_character_data(SETTINGS):
+def load_character_data():
     """
     Loads character data for movies from a TSV file based on the SETTINGS.
     """
@@ -187,12 +187,12 @@ def load_character_data(SETTINGS):
     "Freebase character ID",
     "Freebase actor ID"
     ]
-    CHARACTER = pd.read_csv(f'{SETTINGS["ORIGINAL_DATA_RUTE"]}character.metadata.tsv', sep='\t', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
+    CHARACTER = pd.read_csv(f'{Settings.ORIGINAL_DATA_RUTE}character.metadata.tsv', sep='\t', header=None, encoding='utf-8', na_values=['NA', ''], names=column_names)
     
     return CHARACTER
 
 
-def merge_plot_movies(SETTINGS, MOVIES):
+def merge_plot_movies(MOVIES):
     """
     Reads a file containing plot summaries, then merges the plot data with the existing movie dataset (MOVIES)
     based on the ‘wikipedia_movie_ID’. 
@@ -203,7 +203,7 @@ def merge_plot_movies(SETTINGS, MOVIES):
     "plot"
     ]
 
-    PLOTS = pd.read_csv(f'{SETTINGS["ORIGINAL_DATA_RUTE"]}plot_summaries.txt', sep='\t', header=None, encoding='utf-8', names=column_names)
+    PLOTS = pd.read_csv(f'{Settings.ORIGINAL_DATA_RUTE}plot_summaries.txt', sep='\t', header=None, encoding='utf-8', names=column_names)
     MOVIES = pd.merge(MOVIES, PLOTS, on="wikipedia_movie_ID", how="left")
 
     return MOVIES
@@ -261,14 +261,12 @@ def clean_release_year(MOVIES):
     """
     Cleans the 'release_year' column in the MOVIES DataFrame by filtering out invalid or unrealistic years.
 	"""
-    FIRST_MOVIE_YEAR = 1888
-    ACTUAL_YEAR = 2024
 
     # if "release_date" in MOVIES.columns:
     #     MOVIES["release_year"] = pd.to_datetime(MOVIES['release_date'], errors='coerce').dt.year
     if MOVIES["release_year"].dtype == "int64":
         MOVIES["release_year"] = MOVIES["release_year"].fillna(0).astype(int)
-    MOVIES = MOVIES[(MOVIES["release_year"] >= FIRST_MOVIE_YEAR) & (MOVIES["release_year"] <= ACTUAL_YEAR) & (MOVIES["release_year"] != 0)]
+    MOVIES = MOVIES[(MOVIES["release_year"] >= Settings.FIRST_MOVIE_YEAR) & (MOVIES["release_year"] <= Settings.ACTUAL_YEAR) & (MOVIES["release_year"] != 0)]
     
     return MOVIES
 
