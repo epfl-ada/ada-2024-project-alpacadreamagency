@@ -24,16 +24,11 @@ jobs:
           which ruby  # This will show the full path of the ruby executable being used
 
 
-      # Clear bundler cache to ensure fresh gems are installed
-      - name: Clear Bundler Cache
-        run: |
-          bundle cache clean --all
-
-      # Install dependencies (this will regenerate Gemfile.lock)
       - name: Install dependencies
         run: |
           gem install bundler
-          bundle install --no-cache  
+          bundle install --no-cache  # Force a fresh installation without using cache
+ 
         
       - uses: helaili/jekyll-action@v2
         with:
