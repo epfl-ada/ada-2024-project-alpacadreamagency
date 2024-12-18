@@ -554,6 +554,8 @@ button {
 .vertical {
     display: table-cell;
     vertical-align: middle;
+    margin: 0; /* Removes default margin */
+    padding: 20px;
 }
 
 /* Wraps the main content & footer */
