@@ -13,14 +13,14 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0.6' 
+          ruby-version: '3.0'  # Set Ruby version to 3.0 or higher
+          bundler: true   
       - name: Update RubyGems
         run: |
           gem update --system 3.3.22  # Ensure RubyGems version is >= 3.3.22
 
       - name: Install dependencies
         run: |
-          gem install bundler
           bundle install
       - uses: helaili/jekyll-action@v2
         with:
