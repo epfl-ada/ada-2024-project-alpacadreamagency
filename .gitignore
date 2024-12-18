@@ -175,7 +175,7 @@ cython_debug/
 # Jekyll build
 /_site/
 .jekyll-metadata
-#Gemfile.lock
+Gemfile.lock
 
 # webstorm
 .idea/
@@ -198,5 +198,5 @@ test/tmp
 test/version_tmp
 tmp
 vendor
-#Gemfile.lock
+Gemfile.lock
 node_modules
