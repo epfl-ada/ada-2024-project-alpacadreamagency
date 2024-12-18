@@ -1,0 +1,68 @@
+---
+layout: default
+title: ADA STORY
+cover: 'assets/images/cover1.jpg'
+class: 'home-template'
+navigation: True
+logo: 'assets/images/Corcodile.png'
+current: home
+---
+<!-- < default -->
+<!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
+
+<!-- The big featured header  -->
+<header class="main-header {% if page.cover %}"
+        style="background-image: url({{ site.baseurl }}{{ page.cover }}) {% else %}no-cover{% endif %}">
+    <nav class="main-nav overlay clearfix">
+        {% if page.logo %}<a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ site.baseurl }}{{ page.logo }}" alt="Blog Logo" /></a>{% endif %}
+        {% if page.navigation %}
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        {% endif %}
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Prologue</h1>
+            <h2 class="page-description">Setting the scene...</h2>
+            <p1> It’s a saturday night and you are scrolling through movies on Netflix. 
+                The clock is ticking and the night isn’t getting any younger — 
+                you have to choose a movie now. You have had a tough week, full of project 
+                deadlines and two midterm exams. You deserve a rest. You deserve to forget about work and 
+                watch something entertaining. Something that will help you forget that annoying ad tune that’s been stuck in your head all day. 
+                A musical, you think. Yes, that’s what I’ll watch. </p1>
+
+            <p2> You remember a friend of yours recommending a musical on Disney+, so you think, why not? and start the search for it. Once you find it, the first thing that catches your eye is the old-style clothing of the actors on the movie poster. You look at the genres and, of course, Biography and History greet you with open arms. You grimace a little and consider going back to search for something else. As much as you enjoy musicals, historical fiction is really not your cup of tea. How good can a historical, biographical, musical be anyway? The thought lasts only a second though, because you remember your friend begging you to watch it so much you feel like you really don’t have a choice.</p2>
+                
+            <p> And so, you watch the musical. To your surprise, it’s good. The movie made you smile, it made you laugh, it made you want to sing along even if you knew none of the words. It was not all sunshine and rainbows though. There was drama, there was conflict, there was pain. Three quarters through the movie, you were crying your eyes out. </p>
+                
+            <p>As the credits roll and tears still stream down your face, you think back to the original genres of the movie. Biography, History. Are they correct? Grudgingly, you have to admit they are, but still, you feel like they were not enough. Were it not for your friend, you would have never given this movie a try. Whoever labeled this movie, should’ve done better. </p>
+                
+            <p>When you go to sleep that night, you start to wonder… what makes a movie belong to a particular genre? What movie characteristics define their genres? And as an ADA student, you really can’t help it, you really want to know… is it possible to automatically assign genres to movies using their data?</p>
+                
+            <p>You close your eyes…</p>
+                
+            <p>…and dream.</p>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
+
+<!-- The main content area on the homepage -->
+<main id="content" class="content" role="main">
+    <h1 class="page-title">{{ site.name }}</h1>
+    <h2 class="page-description">{{ site.description }}</h2>
+
+    <h1 id="data">Data</h1>
+    <h1 id="analysis">Analysis</h1>
+    <h1 id="results">Results</h1>
+    <div>
+        {% raw %}
+        # Prologue
+
+        ## Setting the scene...
+
+        It’s a saturday night and you are scrolling through movies on Netflix...
+        {% endraw %}
+    </div>
+    
+
+</main>
