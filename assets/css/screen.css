@@ -554,8 +554,6 @@ button {
 .vertical {
     display: table-cell;
     vertical-align: middle;
-    margin: 0; /* Removes default margin */
-    padding: 20px;
 }
 
 /* Wraps the main content & footer */
@@ -596,7 +594,7 @@ body.nav-opened .site-wrapper {
 }
 
 .main-header .inner {
-    width: 95%; /*original: 80%*/
+    width: 100%; /*original: 80%*/
 }
 
 .main-nav {
