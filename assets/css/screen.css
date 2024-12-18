@@ -594,7 +594,7 @@ body.nav-opened .site-wrapper {
 }
 
 .main-header .inner {
-    width: 80%;
+    width: 95%; /*original: 80%*/
 }
 
 .main-nav {
