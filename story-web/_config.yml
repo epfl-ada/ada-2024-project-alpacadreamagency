@@ -14,7 +14,7 @@ short_url: 'https://github.com/epfl-ada/ada-2024-project-alpacadreamagency'
 google_analytics: UA-69281367-1
 disqus: username
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: /ada-2024-project-alpacadreamagency/
+baseurl: /ada-2024-project-alpacadreamagency/story-web/
 
 # Permalinks
 permalink: /:title
