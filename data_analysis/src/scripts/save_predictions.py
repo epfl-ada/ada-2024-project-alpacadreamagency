@@ -1,6 +1,6 @@
 import pandas as pd
 
-def save_predictions(predictions, testing_set, genre_labels):
+def save_predictions(name, predictions, testing_set, genre_labels):
     predicted_genre = []
 
     print("Preparing output...")
@@ -16,6 +16,6 @@ def save_predictions(predictions, testing_set, genre_labels):
     })
 
     print("Writing in file...")
-    predictins_output.to_csv("movies_predicted_genre.csv", index = False)
+    predictins_output.to_csv(f"movies_predicted_genre_{name}.csv", index = False)
 
     print("DONE!")

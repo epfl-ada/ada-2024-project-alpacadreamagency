@@ -8,6 +8,32 @@ import random
 import torch
 from sklearn.model_selection import train_test_split
 from src.utils.settings import Model_Settings
+from src.scripts.save_predictions import save_predictions
+import re
+
+def save_model(model, model_name):
+    torch.save(model.state_dict(), fr'src\models\trained_models\{model_name}.pth')
+    
+def load_model(model_name):
+    # Regular expression pattern to match the model name format
+    pattern = r"model_(?P<shape>[du])_l(?P<layer_size>\d+)_f(?P<feature_size>\d+)_g(?P<genre_size>\d+)"
+
+    # Use re.search to extract the information
+    match = re.search(pattern, model_name)
+
+    if match:
+        # Extract values from the match object
+        shape = True if match.group('shape') == 'd' else False
+        layer_size = int(match.group('layer_size'))
+        feature_size = int(match.group('feature_size'))
+        genre_size = int(match.group('genre_size'))
+    else:
+         raise ValueError("Model name does not match the expected format.")
+    
+    model_factory = lambda: get_model(feature_size, genre_size, layer_size, shape)
+    model_loaded = model_factory() 
+    model_loaded.load_state_dict(torch.load(fr'src\models\trained_models\{model_name}.pth'))
+    return model_loaded    
 
 def get_model(feature_size, genre_size, layer_size, dense_shape):
     """
@@ -61,6 +87,8 @@ def get_model(feature_size, genre_size, layer_size, dense_shape):
             torch.nn.ReLU(),
             torch.nn.Linear(16, 32),
             torch.nn.ReLU(),
+            torch.nn.Linear(32, 64),
+            torch.nn.ReLU(),
             torch.nn.Linear(64, 128),
             torch.nn.ReLU(),
             
@@ -76,9 +104,10 @@ def get_model(feature_size, genre_size, layer_size, dense_shape):
     return model
 
 def start_train_model(
-    training_columns, training_set, training_target_set, 
+    training_columns, 
+    training_set, training_target_set, 
     testing_set, testing_target_set,
-    model_settings: Model_Settings, print_result = True
+    model_settings: Model_Settings, print_result = False
 ):
     NEW_GENRE = pd.read_csv(r"src\utils\categories.csv")
     
@@ -109,7 +138,9 @@ def start_train_model(
     if print_result:
         print_training_results(*histories)
     
-    return trained_model, histories
+    model_name = f"model_{'d' if model_settings.DENSE_SHAPE else 'u'}_l{model_settings.LAYER_SIZE}_f{feature_size}_g{genre_size}"
+    
+    return trained_model, histories, model_name
 
 def train_model(model, training_set, training_target_set, testing_set, testing_target_set,
                 optimizer, criterion, model_settings: Model_Settings, device):
@@ -230,10 +261,6 @@ def validate_model(model, data_loader_validation, criterion, device):
     return loss/(validation_batches), validation_samples
 
 
-
-
-
-
 def get_output_hot(output, target, classification_threshold):
     """
         From the predicted values of the NN, get those predicted genre:
@@ -293,17 +320,18 @@ def get_training_batch(training_set, target_set, batch_size = 10):
         yield batch_train, batch_test
     
 
-def test_model_get_score(trained_model, training_columns, testing_set, testing_target_set):
+def test_model_get_score(trained_model, model_name, training_columns, X_test, y_test, testing_set):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    data_loader = get_training_batch(X_test, y_test)
     
-    testing_set_t = torch.tensor(testing_set[training_columns].values.tolist(), dtype=torch.float32).to(device)
-    testing_target_set_t = torch.tensor(testing_target_set.values.tolist(), dtype=torch.float32).to(device)
+    # testing_set_t = torch.tensor(testing_set[training_columns].values.tolist(), dtype=torch.float32).to(device)
+    # testing_target_set_t = torch.tensor(testing_target_set.values.tolist(), dtype=torch.float32).to(device)
     trained_model = trained_model.to(device)
     
     NEW_GENRE = pd.read_csv(r"src\utils\categories.csv")
 
     print("Testing model...")
-    predictions, scores = test_model(trained_model, testing_set_t, testing_target_set_t, Model_Settings.THRESHOLD_GENERAL)
+    predictions, scores = test_model(trained_model, training_columns, data_loader, Model_Settings.THRESHOLD_GENERAL, device)
 
     genre_labels = NEW_GENRE["categories"]
     predicted_genre = []
@@ -313,48 +341,62 @@ def test_model_get_score(trained_model, training_columns, testing_set, testing_t
         genres = [genre_labels[i] for i, is_genre in enumerate(movie_prediction) if is_genre == 1]
         predicted_genre.append(genres)
 
-    predictins_output = pd.DataFrame({
-        'wikipedia_movie_ID': testing_set["wikipedia_movie_ID"],
-        'name': testing_set["name"],
-        'original_genres': testing_set["new_genres"],
-        'predicted_genres': predicted_genre,
-    })
-
-
-    predictins_output.to_csv("movies_predicted_genre.csv", index = False)
-    print("DONE!")
+    save_predictions(model_name, predictions, testing_set, NEW_GENRE["categories"])
     
     return scores
 
 
-def test_model(model, testing_set, testing_target_set, classification_threshold):
+def test_model(model, training_columns, data_loader_validation, classification_threshold, device):
     """
        
         Once the training is done, Evaluates the performance of a trained neural network model on a test dataset:
         use the 'model' to predict the genre of the movies in 'testing_set'.
         Also compute the Precision, Recall and F-Score of it.
     """
-    N = testing_set.shape[0] 
-    Dy = testing_target_set.shape[1] 
+    validation_samples = 0
+    validation_batches = 0
+    
+    all_outputs_hot = []
+    total_accurazy = 0
+    total_f_score = 0
+    total_precision = 0
+    total_recall = 0
     
     model.eval()
     with torch.no_grad():
-        output = model(testing_set)
-        
-    del testing_set
-        
-    output_hot, correct = get_output_hot(output, testing_target_set, classification_threshold)
+        for (inputs, targets) in data_loader_validation:
+            inputs = inputs.float().to(device)
+            targets = targets.float().to(device)
+            output = model(inputs)
+            
+            output_hot, correct = get_output_hot(output, targets, classification_threshold)
+            f_score, precision, recall = compute_avg_f_score(output_hot, targets)
+            
+            all_outputs_hot.append(output_hot.cpu())
+            total_accurazy += correct.item() / (len(targets) * len(targets[0]))
+            total_f_score += f_score
+            total_precision += precision
+            total_recall += recall
+            
+            validation_samples += len(targets)
+            validation_batches += 1 
     
-    f_score, precision, recall = compute_avg_f_score(output_hot, testing_target_set)
+    total_accurazy /= validation_batches
+    total_f_score /= validation_batches
+    total_precision /= validation_batches
+    total_recall /= validation_batches
     
-    accuracy = correct.item() / (N * Dy) 
+    print(f'Testing {total_accurazy = :.4f}')
+    print(f'Testing {total_f_score = :.4f}')
+    print(f'Testing {total_precision = :.4f}')
+    print(f'Testing {total_recall = :.4f}')
     
-    print(f'Testing {accuracy = :.4f}')
-    print(f'Testing {f_score = :.4f}')
-    print(f'Testing {precision = :.4f}')
-    print(f'Testing {recall = :.4f}')
-    
-    return output_hot, [(accuracy, "accuracy"), (f_score, "f_score"), (precision, "precision"), (recall, "recall")]
+    return torch.cat(all_outputs_hot, dim=0), [
+        (total_accurazy, "accuracy"), 
+        (total_f_score, "f_score"), 
+        (total_precision, "precision"), 
+        (total_recall, "recall")
+    ]
     
 def print_training_results(loss_history, acc_history, f_score_history, precision_history, recall_history):
     batch_indices = [i for i in range(len(loss_history))]
