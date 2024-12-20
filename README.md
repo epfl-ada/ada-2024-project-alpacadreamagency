@@ -2,6 +2,9 @@
 > Fredik Nguyen, Sayaka Yamashita, Catalina Regolf, Clementine Lefloch &  Miquel Gomez
 
 # Predicting Genre From Data – A Movie Classification Project
+
+### WEBSITE
+https://epfl-ada.github.io/ada-2024-project-alpacadreamagency/
 ### Abstract
 The world of movies is extensive and over a century old. The variety of movies that have been made is overwhelmingly large: whether it’s drama, action or romance, horror or sci-fi, there’s a movie out there that caters to each individual’s particular taste. When searching for what to watch, one of the first things we look at is genre — what kind of movie are we in the mood to watch? As such, having a movie tagged with the right genres is crucial for it to find its right audience. This sparked our interest in genre classification: what makes a movie belong to a particular genre? This project will focus on genre and the characteristics of movies that set genres apart. By the end of this project, we want to see if it’s possible to automatically assign genres to movies using their data. 
 
