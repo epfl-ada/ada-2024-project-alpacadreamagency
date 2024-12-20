@@ -777,5 +777,34 @@ current: home
             <h5 class="sub-titles">How Do We Compare Their Performance?</h5>
             <p class="main-sub-text">The F1 Score is our referee. It balances precision (how many predictions are correct) and recall (how many relevant genres are identified). A high F1 score means the model is both accurate and comprehensive — perfect for genre classification.</p>
 
+            <h5 class="sub-titles">Fine tuning the models</h5>
+            <p class="main-sub-text">Default settings may be good, but sometimes we need to look closer to see which ones make our models work better.
+                <br><br>
+                The first thing we do is grid search of all the possible features of the models. One by one we try which option is better with the other settings fixed. At the end we choose the best combinations.
+                <br><br>
+                Also, we do a feature selection process where, sadly, we discard some before training the models. Why? Well, even if our big boy look big, they may get overwhelmed by all the data, overfit, or not focus on the important parts. We remove some data that may not be that useful and in  the process we make our models fasters (less computations, less time thinking).
+                <br><br>
+                At the end, we removed features like 'tragedy', 'betrayal', or 'fear’ from the plot topics. Why? As we saw before some of those share words that may be just useless for the classification. Also 'N/A actor count' is a feature that comes from the lack of information in the dataset. Like those, we end up finding more. It is sad but we have to say bye to them in order to achieve our goal.  :,(
+                </p>
+
+            <h5 class="sub-titles">Training the beast</h5>
+            <p class="main-sub-text">Training a standard model is rather simple: Get the data, get the model, feed the model the data :). Yet, not all is happiness, neural networks require more work. Usually we will have 
+                to feed them the data more than ones (have some epochs). Therefore, we can see how it evolves over time.
+                <br><br>
+                
+                Unlikely, our big boys are not very strong, and they had a bad time training :(. The lack of computational power does not allow us to make more validation on this models, and therefore train longer and with better settings. We leave this as a learning taks for the reader. So now, let's compare the performance of the models.
+                <br><br>
+            
+
+                As we can see, all of them have a high accuracy and decent f-score. We also tried doing the predictions at random and as we can see, our models are better! Now, let’s see some of the predictions. 
+                <br><br>
+
+
+                As we can see our ridge guy get some a lot of the genres right but then, add some other for you to be aware of any potential topics hahaha!
+
+
+
+            </p>
+
 
 </main>
