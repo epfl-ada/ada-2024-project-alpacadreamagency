@@ -818,7 +818,7 @@ current: home
                 <br><br>
 
 
-                As we can see our ridge guy get some a lot of the genres right but then, add some other for you to be aware of any potential topics hahaha!
+                As we can see, all of them have a high accuracy and decent f-score. We also tried doing the predictions at random and so we proven that, our models are better! With this said, let’s see some of the predictions and give some use to the models.. 
 
             </p>
                         
@@ -861,9 +861,63 @@ current: home
                 </tbody>
               </table>
 
+              BOOOM! Our ridgy guy get some of the genres right but then, add some other for you to be aware of any potential topics hahaha!
+              Also, if the you remember the some of most common genres were drama and comedy. Therefore, the model learned that if most the movie are classified as ‘drama’ or ‘comdey’, he gets less punishment from the training judge.
+              <table border="1" style="margin-left: 140px;margin-right: 140px; width: 1000px;">
+                <thead>
+                  <tr>
+                    <th>Movie Name</th>
+                    <th>Original Genre</th>
+                    <th>Predicted Genre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hey Ram</td>
+                    <td>Asian Movies, Drama, Historical, World cinema</td>
+                    <td>Drama</td>
+                  </tr>
+                  <tr>
+                    <td>Joshua Tree</td>
+                    <td>Action/Adventure, Crime, Indie, Thriller</td>
+                    <td>Drama</td>
+                  </tr>
+                  <tr>
+                    <td>Killer Party</td>
+                    <td>Horror</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
 
+              But at the end, not everything is drama, our forest manage to get good guesses
 
-
+              <table border="1" style="margin-left: 140px;margin-right: 140px; width: 1000px;">
+                <thead>
+                  <tr>
+                    <th>Movie Name</th>
+                    <th>Original Genre</th>
+                    <th>Predicted Genre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hey Ram</td>
+                    <td>Asian Movies, Drama, Historical, World cinema</td>
+                    <td>Action/Adventure, Comedy, Crime, Drama, Romance, Thriller</td>
+                  </tr>
+                  <tr>
+                    <td>Money Mad</td>
+                    <td>Crime, Indie, Old-fashioned/classical style, Short Film</td>
+                    <td>Comedy, Drama, Indie, Old-fashioned/classical style, Short Film</td>
+                  </tr>
+                  <tr>
+                    <td>Savages</td>
+                    <td>Crime, Drama, Thriller</td>
+                    <td>Action/Adventure, Comedy, Crime, Drama, Thriller</td>
+                  </tr>
+                </tbody>
+              </table>
 
             <h1 class="page-title" style="color: #000; text-align: center;">Epilogue</h1>
             
