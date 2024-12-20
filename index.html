@@ -68,6 +68,67 @@ current: home
     list-style-type: square; /* Use square bullets instead of default */
     margin-left: 160px;
     }
+
+    .graph-photos {
+        display: block; /* Make the image a block element */
+        margin: 0 auto;
+    }
+
+    .iframe-wrapper {
+        display: flex;           /* Use Flexbox for centering */
+        justify-content: center; /* Horizontally center */
+        align-items: center;     /* Vertically center (if needed) */
+        width: 100%;             /* Full width of the parent container */
+        height: auto;            /* Adjust based on content */
+        margin: 20px auto;       /* Center on the page and add spacing */
+    }
+    
+    .iframe-plot {
+        max-width: 100%;         /* Responsive width */
+        height: 300px;           /* Adjust the iframe height */
+        border: 1px solid #ccc;  /* Optional border for clarity */
+        border-radius: 5px;      /* Optional rounded corners */
+        display: block;          /* Ensure it's treated as a block-level element */
+        margin: 100px;
+        
+        margin: auto;
+    }
+    
+    .container {
+        display: flex;
+        align-items: left; /* Vertically align text and image */
+        justify-content: space-between; /* Space out text and image */
+        gap: 20px; /* Add spacing between text and image */
+        
+        margin-top: 15px;
+        margin-left: 140px;
+        margin-right: 140px;
+        margin-bottom: 0px;
+
+    }
+    
+    .text-section {
+        flex: 1; /* Allow the text section to take up one portion of the space */
+        text-align: left;
+        font-size: 16px; /* Adjust the size as needed */
+        
+        line-height: 1.4;
+        font-style: normal;
+    }
+    
+    .image-section {
+        flex: 1; /* Allow the image section to take up one portion of the space */
+        text-align: center; /* Align the image to the right */
+    }
+    
+    .image-section img {
+        max-width: 100%; /* Ensure the image is responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+    .contained-ul {
+    list-style-type: square; /* Use square bullets instead of default */
+    margin-left: 20px;
+    }
         
 </style>
 
@@ -91,7 +152,7 @@ current: home
                   why not? and start the search for it. Once you find it, its genres catch your eye: 
                   Biography and History. You grimace a little and consider going back to search for something else. 
                   As much as you enjoy musicals, historical fiction is really not your cup of tea. How good can a historical, 
-                biographical, musical be anyway? Your friend told you to watch it thoug, so you have no choice.</em></p>
+                biographical, musical be anyway? Your friend told you to watch it though, so you have no choice.</em></p>
     
             <p class="small-text"><em>And so, you watch the musical. To your surprise,
                  it’s good. The movie made you smile, it made you laugh, it made you 
@@ -182,10 +243,21 @@ current: home
     
     <h5 class="sub-titles">Movies Through the Decades: A Cinematic Boom</h5>
 
-    <p class="main-sub-text">As we can see, movies have become a significant part of our lives and a cornerstone of entertainment.
-        <br>In the early years (before the 1920s), movie production was sparse as the film industry was still in its infancy. As technology advanced and filmmaking became more accessible, we see a steady rise in the number of films produced, particularly from the 1930s onward.
-        <br>Interestingly, there are noticeable dips around the 1940s, likely due to World War II, which disrupted global film production. However, the industry rebounded post-war, continuing to grow steadily through the mid-20th century.
-        <br>The real explosion in movie production occurs from the 1980s onwards, reaching its peak in the early 2000s. This surge can be attributed to:
+    <div class="container">
+        <div class="text-section">
+            <p>As we can see, movies have become a significant part of our lives and a cornerstone of entertainment.
+                <br><br>In the early years (before the 1920s), movie production was sparse as the film industry was still in its infancy. As technology advanced and filmmaking became more accessible, we see a steady rise in the number of films produced, particularly from the 1930s onward.
+                <br><br>Interestingly, there are noticeable dips around the 1940s, likely due to World War II, which disrupted global film production. However, the industry rebounded post-war, continuing to grow steadily through the mid-20th century.
+                
+            </p>
+        </div>
+        <div class="image-section">
+            <img src="{{ site.baseurl }}assets/images/graphs/movies-per-year.png" alt="Movies Per Year Plot">
+        </div>
+    </div>
+
+    
+    <p class="main-sub-text">The real explosion in movie production occurs from the 1980s onwards, reaching its peak in the early 2000s. This surge can be attributed to:
         <ul class="story-ul">
             <li>Advances in technology and filmmaking techniques.</li>
             <li>The rise of global film markets and independent cinema.</li>
@@ -204,11 +276,82 @@ current: home
 
     <h4 id="stats" class="section-titles">The Statistics of Storytelling <em>~Science or Fiction?~</em></h4>
 
+    <p class="main-text">Like it or not, statistics very much fall into the non-fiction category, so let's take a brief 
+        look at this short documentary that will introduce us to two important characters of our journey. </p>
 
+
+    <h5 class="sub-titles">Pearson Correlation: Linear Relationships</h5>
+
+    <div class="container">
+        <div class="text-section">
+            <p>The Pearson correlation measures the strength and direction of the 
+                linear relationship between two variables. It answers the question: 
+                <em>When one variable increases (or decreases), 
+                    does the other do the same, and in a predictable way?</em>
+            </p>
+            <ul class="contained-ul">
+                <li>Scale: The Pearson correlation coefficient ranges from -1 to 1.</li>
+                <ul>
+                    <li>1: Perfect positive linear relationship (as one goes up, the other does too)</li>
+                    <li>0: No linear relationship.</li>
+                    <li>-1: Perfect negative linear relationship (as one goes up, the other goes down).</li>
+
+                </ul>
+                <li>When to Use It: When your data is normally distributed and you expect the relationship between variables to be linear.</li>
+            </ul>
+
+        </div>
+        <div class="image-section" >
+            <img style="height: 350px;width: auto;" src="{{ site.baseurl }}assets/images/ada/pearson.png" alt="Pearson">
+        </div>
+    </div>
+
+
+
+    <h5 class="sub-titles">Spearman Correlation: Ranks and Non-Linear Relationships</h5>
+
+
+    <div class="container">
+        <div class="image-section" >
+            <img style="height: 300px;width: auto; " src="{{ site.baseurl }}assets/images/ada/spearman.jpg" alt="Spearman">
+        </div>
+
+        <div class="text-section">
+            <p>The Spearman correlation, on the other hand, is all about ranks. It measures how well the
+                 relationship between two variables can be described by a 
+                monotonic function (i.e., consistently increasing or decreasing, but not necessarily in a straight line).
+            </p>
+            <ul class="contained-ul">
+                <li>Scale: Like Pearson, Spearman ranges from -1 to 1.</li>
+                <ul>
+                    <li>1: Perfectly monotonic increasing relationship (as one variable’s rank increases, so does the other’s).</li>
+                    <li>0: No monotonic relationship.</li>
+                    <li>-1: Perfectly monotonic decreasing relationship.</li>
+
+                </ul>
+                <li>When to Use It: When your data is not linear or when you’re dealing with ordinal data (e.g., ranks or categories).</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <h1>to delete later</h1>
 
     <p class="main-text"></p>
 
-
+    <div class="iframe-container">
+        <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/saved_plot.html" 
+                width="80%" 
+                height="400px" 
+                frameborder="0"></iframe>
+    </div>
     
+    
+    <img class="graph-photos" src="{{ site.baseurl }}assets/images/graphs/movies-per-year.png" alt="Movies Per Year Plot" />
 
 </main>
