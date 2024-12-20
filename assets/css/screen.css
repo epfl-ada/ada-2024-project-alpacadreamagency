@@ -913,6 +913,8 @@ body.nav-opened .nav {
     height: 100px; /*original: 38px*/
     padding: 1px 0 5px 0;
     width: auto;
+    border: 3px solid white; /* Add a white border around the image */
+    border-radius: 50%;
 }
 .menu-button {
     -webkit-box-sizing: border-box;
