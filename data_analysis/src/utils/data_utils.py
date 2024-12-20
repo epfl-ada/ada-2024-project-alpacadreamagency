@@ -396,7 +396,7 @@ def merge_genders_movies(MOVIES, actor_counts):
     #MOVIES['Number of Male'] = MOVIES['Number of Male'].fillna(0).astype(int)
     #MOVIES['Number with no gender'] = MOVIES['Character Count']- MOVIES['Number of Female'] - MOVIES['Number of Male']  
 
-    return MOVIES
+    return MOVIES, ["Male actor count", "Female actor count", "N/A actor count"]
 
 
 def add_actor_per_age(MOVIES, CHARACTER):
@@ -430,4 +430,4 @@ def add_actor_per_age(MOVIES, CHARACTER):
 
     MOVIES[column_names] = MOVIES[column_names].fillna(0).astype(int)
 
-    return MOVIES
+    return MOVIES, column_names
