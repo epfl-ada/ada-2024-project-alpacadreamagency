@@ -13,7 +13,7 @@ current: home
         font-size: 16px; /* Adjust the size as needed */
         /*margin: 0 0 1.75em 0;*/
         margin: 100px;
-        color: #79868e;
+        color: #d2dce7;
         margin-top: 13px;
         margin-bottom: 10px;
         line-height: 1.4
@@ -36,7 +36,7 @@ current: home
 <header class="main-header {% if page.cover %}"
         style="background-image: url({{ site.baseurl }}{{ page.cover }}) {% else %}no-cover{% endif %}">
     <nav class="main-nav overlay clearfix">
-        {% if page.logo %}<a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ site.baseurl }}{{ page.logo }}" alt="Blog Logo" /></a>{% endif %}
+        {% if page.logo %}<a class="blog-logo" href="{{ site.baseurl }}about"><img src="{{ site.baseurl }}{{ page.logo }}" alt="Blog Logo" /></a>{% endif %}
         {% if page.navigation %}
             <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
         {% endif %}
