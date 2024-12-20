@@ -6,7 +6,7 @@ import ast
 from collections import Counter
 import random
 import torch
-from sklearn.model_selection import train_test_split
+from sklearn import model_selection as ms 
 
 
 def cross_validation_split(data, training_columns, testing_column, set_to_test, train_proportion = 0.2, seed = 42):
@@ -40,11 +40,21 @@ def train_and_test_split(data, training_columns, testing_column, train_proportio
         (Used for this milestone)
     """
     
-    training_set, testing_set = train_test_split(data, test_size=train_proportion, random_state=seed)
+    training_set, testing_set = ms.train_test_split(data, test_size=train_proportion, random_state=seed)
+    
+    y_train = training_set[testing_column]
+    y_train = y_train.apply(ast.literal_eval)
+    y_train = np.array(y_train.to_list()) 
+
+    y_test = testing_set[testing_column]
+    y_test = y_test.apply(ast.literal_eval)
+    y_test = np.array(y_test.to_list())  
 
     return (
         training_set[training_columns], 
-        training_set[testing_column], 
-        testing_set, 
-        testing_set[testing_column], 
+        y_train, 
+        testing_set[training_columns], 
+        y_test, 
+        training_set,
+        testing_set
     )

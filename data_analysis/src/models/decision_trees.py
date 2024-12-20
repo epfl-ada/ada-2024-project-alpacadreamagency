@@ -19,7 +19,7 @@ def train_tree_model(X_train, y_train, X_test, y_test, classification_threshold,
 
 def train_random_tree_model(X_train, y_train, X_test, y_test, classification_threshold, seed):
 
-    model = RandomForestClassifier(random_state=seed,  n_jobs=-1)
+    model = RandomForestClassifier(random_state=seed, n_jobs=-1)
     model.fit(X_train, y_train)
     
     y_pred_logit = model.predict_proba(X_test)
