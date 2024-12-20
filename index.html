@@ -496,7 +496,9 @@ current: home
                         parts swoon-worthy men and quirky women, the genre has a lot to say about who gets the spotlight.
                     </p>
 
-                    
+                    <p class="main-sub-text">
+                        <em>Do you see this plot? No? It's up to you to click the buttons and play around to see the plots!</em>
+                    </p>
                     
                     <div class="iframe-container">
                         <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/gender_distr.html" 
@@ -766,13 +768,16 @@ current: home
             <p class="main-sub-text">The fist one has more neurons and so is able to get more complex relations between the features. Meanwhile, the U-shape one “compresses” the data in fewer neurons so the information can be mixed. Then, both rescale the layers into the right size to make the predicition.</p>
 
             <h5 class="sub-titles">Why Use These Models Together?</h5>
-            <p class="main-sub-text">Each model has its strengths:<br><br>
-                Decision trees are easy to interpret and explain.<br><br>
-                    Random forests are robust and accurate.<br><br>
-                    KNN is simple and doesn’t assume much about the data.<br><br>
-                    Regression is efficient and works well for simpler patterns.<br><br>
-                    Neural networks are powerful and capture complex relationships.<br><br>
-                    By trying multiple models, we get a better sense of what works best for predicting genres. Plus, it’s fun to watch them compete!</p>
+            <p class="main-sub-text">Each model has its strengths:</p>
+                <ul>
+                    <li>Decision trees are easy to interpret and explain.</li>
+                    <li>Random forests are robust and accurate.</li>
+                    <li>KNN is simple and doesn’t assume much about the data.</li>
+                    <li>Regression is efficient and works well for simpler patterns.</li>
+                    <li>Neural networks are powerful and capture complex relationships.</li>
+                    
+                </ul>
+            <p class="main-sub-text">By trying multiple models, we get a better sense of what works best for predicting genres. Plus, it’s fun to watch them compete!</p>
 
             <h5 class="sub-titles">How Do We Compare Their Performance?</h5>
             <p class="main-sub-text">The F1 Score is our referee. It balances precision (how many predictions are correct) and recall (how many relevant genres are identified). A high F1 score means the model is both accurate and comprehensive — perfect for genre classification.</p>
