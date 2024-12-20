@@ -700,6 +700,46 @@ current: home
             <p class="main-text">Why did we create a model? Well, because sometimes movie genres feel like they were chosen during a particularly confusing game of darts. "Is it a comedy? A drama? Both? Neither?" Genres can often be vague, misleading, or downright baffling. So, we decided to do better. 
                 Enter our movie genre predictor model, where data speaks louder than human guesswork.</p>
 
+            <p class="main-text"><b>Why so many models?</b>
+                Since we do not chill with our objective, we are not going to use just a model. Why? 
+                Because we don’t know which one will work best (we’re not mind readers, sadly). 
+                Different models are good at different tasks, so we threw six contenders into the ring: 
+                four classic algorithms and two neural networks. Think of it as our own little algorithm Hunger Games.
+            </p>
 
+            <h5 class="sub-titles">The Competitors:</h5>
+            <h5 class="sub-titles">Decision Trees: Sherlock Holmes in Data Form</h5>
+                <p class="main-sub-text">Imagine a flowchart where every question is a decision point. 
+                    A decision tree looks at your movie data — 
+                    say, runtime, budget, or number of actors — and splits it into "branches" based on yes/no questions.
+                </p>
+                <ul class="story-ul">
+                    <li>Example: Is the runtime over 120 minutes? Yes? Then maybe it’s an epic or historical drama. No? Maybe it’s a comedy or horror.
+                    </li>
+                </ul>
+                <p class="main-sub-text">At the "leaves" of the tree (the end points), the algorithm decides whether your movie belongs to a specific genre or not one at a time: We are going to have one tree per genre, each ruled by different split decisions. Decision trees are straightforward, intuitive, and great for explaining why a movie is classified the way it is — like Sherlock Holmes explaining his deductions.
+                </p>
+
+            <h5 class="sub-titles">Random Forest: A Party of Trees</h5>
+                <p class="main-sub-text">A single tree is good, but sometimes it can overthink or overfit and look, being a lonly tree is sad, isn’t it?. Random forests solve this by creating lots of decision trees, each trained on slightly different subsets of the data using techniques like bootstrap. For every genre we have a forest: Every tree votes, and the majority vote decides the fate of the movies (belongs or not belongs to that genre…).
+                </p>
+                <ul class="story-ul">
+                    <li>Why is this cool? If one tree says "yes" and the others say "no," the forest can overrule the rogue tree.                    </li>
+                    <li>Think of it as a jury trial for your movie: each tree is a juror, and together they make the final decision.                    </li>
+                </ul>
+                <p class="main-sub-text">Random forests add robustness and reduce the risk of a single bad tree messing everything up.                </p>
+            
+            <h5 class="sub-titles">K-Nearest Neighbors (KNN): The Neighborhood Watch</h5>
+                <p class="main-sub-text">This model doesn’t assume much about the data. Instead, it lets the data speak for itself by comparing your movie to its "neighbors."
+                <br><br>Here's how it works:
+                </p>
+                <ul class="story-ul">
+                    <li>Imagine all the movies as points in a multi-dimensional hyperspace (where each feature like runtime or budget is a dimension).</li>
+                    <li>Your movie lands somewhere in this hyperspace, and KNN looks for the "k" closest movies — its neighbors.                   </li>
+                    <li>It checks what genres those neighbors belong to and assigns your movie the genre that’s most common among them.                   </li>
+                    <li>For each genre, it looks how many of those neighbours belong to it, then if more than half of them do, it decides that our new movie also does belong to that genre.                 </li>
+                </ul>
+                <p class="main-sub-text">This method is simple but effective. For example, if your movie is surrounded by romantic comedies, chances are it’s one too. It’s like asking your closest friends, "What genre does this movie feel like to you?"                </p>
+            
 
 </main>
