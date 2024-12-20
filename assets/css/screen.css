@@ -160,11 +160,16 @@ td, th{ padding: 0; }
 .icon-link:before {
     content: "\f608";
 }
-.icon-menu:before {
+/*.icon-menu:before {
     content: "\f609";
     position: fixed; /* Change to 'fixed' to keep it fixed in place on screen */
-    top: 10px; /* Adjust the distance from the top of the page */
-    right: 10px; /* Adjust the distance from the left of the page */
+  /*  top: 10px; /* Adjust the distance from the top of the page */
+    /*right: 10px; /* Adjust the distance from the left of the page */
+.icon-menu:before {
+    content: "\f609"; /* Unicode for the hamburger icon (three lines) */
+    font-size: 0.8em; /* Adjust size of the icon */
+    display: inline-block; /* Ensure the icon appears inline */
+    vertical-align: middle; /* Align icon with the text */
 }
 /*
     IMPORTANT: When making any changes to the icon font, be sure to increment
@@ -593,8 +598,38 @@ body.nav-opened .site-wrapper {
     overflow: hidden;
 }
 
+/* Semi-transparent overlay */
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity (0.5 = 50%) */
+    z-index: 1;
+}
+
+/* Ensure text appears above the overlay */
+.main-header .vertical,
+.main-header .main-header-content {
+    position: relative;
+    z-index: 2;
+    color: white; /* Adjust text color for contrast */
+}
+
+
 .main-header .inner {
     width: 100%; /*original: 80%*/
+}
+
+/* Ensure the text is properly positioned */
+.main-header .content {
+    position: relative; /* Ensure it stays positioned properly */
+    z-index: 2; /* Ensure it's above the background overlay but below the nav */
+    margin-top: -50px; /* Adjust this value to move text back up if needed */
 }
 
 .main-nav {
@@ -607,6 +642,23 @@ body.nav-opened .site-wrapper {
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
 }
+
+/* Ensure logo and menu button are above the overlay */
+nav.main-nav.overlay {
+    /*position: relative;  Ensure it's on top of the overlay */
+    /* z-index: 3;  Higher than the overlay (z-index: 1) */
+    position: absolute; /* Stays fixed at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3; /* Above everything else */
+}
+
+nav.main-nav.overlay .blog-logo img,
+nav.main-nav.overlay .menu-button {
+    filter: none; /* Remove any filters like darkening */
+}
+
 
 /* Navigation */
 body.nav-opened .nav-cover {
@@ -862,37 +914,54 @@ body.nav-opened .nav {
     padding: 1px 0 5px 0;
     width: auto;
 }
-
 .menu-button {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    display: inline-block;
+   /* display: inline-block;*/
+    display: flex; /* Use flexbox for centering content */
+    justify-content: center; /* Center text horizontally */
+    align-items: center;
     position: fixed; /* Change to 'fixed' to keep it fixed in place on screen */
-    top: 10px; /* Adjust the distance from the top of the page */
+    top: 20px; /* Adjust the distance from the top of the page */
     right: 10px; /* Adjust the distance from the left of the page */
-    height: 38px;
+    height: 33px;
     padding: 0 15px;
     border-style: solid;
     border-width: 1px;
     opacity: 1;
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
     text-transform: uppercase;
-    line-height: 35px;
+    line-height: 5px;
     white-space: nowrap;
     border-radius: 3px;
     transition: all 0.5s ease;
+    /*display: inline-flex; /* Use flexbox to align the content */
+    /*align-items: center; /* Center text and icon vertically */
+    gap: 8px; /* Space between the text and icon */
+    padding: 0.4em 1em; /* Adjust padding for the button */
+    /* Match font size with the rest */
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Use inherited text color */
+    background: black; /* Ensure no background interferes */
+    /*border: none; /* Remove any default border */
 }
+
+/*.menu-button .word {
+    font-size: inherit; /* Ensure text matches the button size */
+  /*  line-height: 1; /* Ensure text is not too tall */
+ /*   margin: 0; /* Remove default margins */
+/*} 
 
 .menu-button:before {
     font-size: 12px;
     font-weight: bold;
     margin-right: 6px;
     position: fixed; /* Change to 'fixed' to keep it fixed in place on screen */
-    top: 10px; /* Adjust the distance from the top of the page */
-    right: 10px; /* Adjust the distance from the left of the page */
-}
+ /*   top: 10px; /* Adjust the distance from the top of the page */
+   /* right: 10px; /* Adjust the distance from the left of the page */
+/*}*/
 
 .menu-button:hover {
     background: #fff;
@@ -921,7 +990,7 @@ body.nav-opened .nav {
 }
 
 /* When the navigation is opened */
-.nav-opened .menu-button {
+/*.nav-opened .menu-button {
     padding: 0 12px;
     background: #111;
     border-color: #111;
@@ -930,6 +999,13 @@ body.nav-opened .nav {
         -ms-transform: translate3D(94px, 0, 0);
             transform: translate3D(94px, 0, 0);
     transition: all 0.3s ease;
+}
+*/
+.nav-opened .menu-button {
+    padding: 0 12px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
 }
 
 .nav-opened .menu-button .word {
