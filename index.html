@@ -741,5 +741,41 @@ current: home
                 </ul>
                 <p class="main-sub-text">This method is simple but effective. For example, if your movie is surrounded by romantic comedies, chances are it’s one too. It’s like asking your closest friends, "What genre does this movie feel like to you?"                </p>
             
+            
+            <h5 class="sub-titles">Regression: Drawing the Lines</h5>
+                <p class="main-sub-text">Regression isn’t just for numbers — it’s great for classification too. Here’s the idea:</p>
+                <ul class="story-ul">
+                    <li>Imagine you’re plotting movies on a graph with two axes (say, budget and runtime). Regression draws a line to separate the genres.Example: If the line is "below 2 times minutes and 0.5 times budget”, it’s a comedy; above that, it’s not.</li>
+                    <li>If we have more dimensions (more features), instead of a line we have a hyperplane that divides the hyperspace.</li>
+                </ul>
+                <p class="main-sub-text">The regression model finds the best hyperplane for each genre. Then uses that as a rule to divide the hyperspace for each genre into two parts. One by one, if moves are on one side of a hyperplane or on the other, they belong or not to a genre.                </p>
+                <p class="main-sub-text">We use a regularized version of the standard regression, the Ridge Regression. It avoids overfitting,  making it a super-efficient classifier. It’s straightforward, though not as flashy as neural networks.                </p>
+            
+            <h5 class="sub-titles">Neural Networks: The Data Brainiac</h5>
+
+            <p class="main-sub-text">Neural networks are the overachievers of machine learning. Inspired by how our brains work, they process data through layers of "neurons." Each neuron takes in inputs (features like runtime, budget, or actor count), applies weights and biases, and passes the result to the next layer.</p>
+            <ul class="story-ul">
+                <li>Input Layer: This is where all your movie data comes in.</li>
+                <li>Hidden Layers: These are the magic zones where the network learns complex patterns. The more layers, the more abstract patterns it can detect.
+                </li>
+                <li>Output Layer: This gives probabilities of the movie to be for each genre. For example, "60% sure is comedy, 30% sure is drama, 10% sure is action..."</li>
+            </ul>
+
+            <p class="main-sub-text">Why is this powerful? Neural networks can find relationships in the data that simpler models might miss. For instance, they might learn that movies with "high budgets + long runtimes + low vote counts" are often historical dramas or something even more complex!. </p>
+            <p class="main-sub-text">However, they are not that easy to train, neither to interpret  — so we think of them like a black box of genius. We are going to use two kind of Neural Networks. One on a box-like shape and one with a U-like shape. </p>
+            <p class="main-sub-text">The fist one has more neurons and so is able to get more complex relations between the features. Meanwhile, the U-shape one “compresses” the data in fewer neurons so the information can be mixed. Then, both rescale the layers into the right size to make the predicition.</p>
+
+            <h5 class="sub-titles">Why Use These Models Together?</h5>
+            <p class="main-sub-text">Each model has its strengths:<br><br>
+                Decision trees are easy to interpret and explain.<br><br>
+                    Random forests are robust and accurate.<br><br>
+                    KNN is simple and doesn’t assume much about the data.<br><br>
+                    Regression is efficient and works well for simpler patterns.<br><br>
+                    Neural networks are powerful and capture complex relationships.<br><br>
+                    By trying multiple models, we get a better sense of what works best for predicting genres. Plus, it’s fun to watch them compete!</p>
+
+            <h5 class="sub-titles">How Do We Compare Their Performance?</h5>
+            <p class="main-sub-text">The F1 Score is our referee. It balances precision (how many predictions are correct) and recall (how many relevant genres are identified). A high F1 score means the model is both accurate and comprehensive — perfect for genre classification.</p>
+
 
 </main>
