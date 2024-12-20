@@ -108,7 +108,7 @@ The data is stored locally as the files are too large. The directory structure o
       - **[`logistic_regression/`](./data_analysis/src/models/logistic_regression.py)** Functions for logistic_regression
       - **[`neural_network/`](./data_analysis/src/models/neural_networks.py)** Main file for neural network model
       - **[`regression/`](./data_analysis/src/models/regression.py)** Functions for regression
-      - **['plot_analysis/`](./data_analysis/src/models/plot_analysis)** Folder for plot analysis amd sentiment analysis
+      - **[`plot_analysis/`](./data_analysis/src/models/plot_analysis)** Folder for plot analysis amd sentiment analysis
         - **[`sentiment_analysis/`](./data_analysis/src/models/plot_analysis/sentiment_analysis.py)** Function for sentiment analysis
         - **[`theme_encoding/`](./data_analysis/src/models/plot_analysis/theme_encoding.py)** Functions to encode themes into vectors
     - **[`utils/`](./data_analysis/src/utils)** 
@@ -122,7 +122,7 @@ The data is stored locally as the files are too large. The directory structure o
 
   - **[`additional_static_plots/`](./data_analysis/additional_static_plots.ipynb)**: some more static plots
 
-  - **['interactive_plots/`](./data_analysis/interactive_plots.ipynb)**: interactive plots
+  - **[`interactive_plots/`](./data_analysis/interactive_plots.ipynb)**: interactive plots
 
 - **[`gitignore/`](./.gitignore)**: List of files ignored by git
 
