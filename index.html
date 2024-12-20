@@ -741,5 +741,15 @@ current: home
                 </ul>
                 <p class="main-sub-text">This method is simple but effective. For example, if your movie is surrounded by romantic comedies, chances are it’s one too. It’s like asking your closest friends, "What genre does this movie feel like to you?"                </p>
             
+            
+            <h5 class="sub-titles">Regression: Drawing the Lines</h5>
+                <p class="main-sub-text">Regression isn’t just for numbers — it’s great for classification too. Here’s the idea:</p>
+                <ul class="story-ul">
+                    <li>Imagine you’re plotting movies on a graph with two axes (say, budget and runtime). Regression draws a line to separate the genres.Example: If the line is "below 2 times minutes and 0.5 times budget”, it’s a comedy; above that, it’s not.</li>
+                    <li>If we have more dimensions (more features), instead of a line we have a hyperplane that divides the hyperspace.</li>
+                </ul>
+                <p class="main-sub-text">The regression model finds the best hyperplane for each genre. Then uses that as a rule to divide the hyperspace for each genre into two parts. One by one, if moves are on one side of a hyperplane or on the other, they belong or not to a genre.                </p>
+                <p class="main-sub-text">We use a regularized version of the standard regression, the Ridge Regression. It avoids overfitting,  making it a super-efficient classifier. It’s straightforward, though not as flashy as neural networks.                </p>
+            
 
 </main>
