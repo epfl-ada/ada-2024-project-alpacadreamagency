@@ -1,10 +1,10 @@
 ---
 layout: default
 title: ADA STORY
-cover: 'assets/images/cover1.jpg'
+cover: 'assets/images/ada/film-reel-2.jpg'
 class: 'home-template'
 navigation: True
-logo: 'assets/images/Corcodile.png'
+logo: 'assets/images/ada/Corcodile.png'
 current: home
 ---
 
@@ -33,8 +33,8 @@ current: home
 </style>
 
 <!-- The big featured header  -->
-<header class="main-header"
-        style="background-image: url('{{ site.baseurl }}/assets/images/cover1.jpg')">
+<header class="main-header {% if page.cover %}"
+        style="background-image: url({{ site.baseurl }}{{ page.cover }}) {% else %}no-cover{% endif %}">
     <nav class="main-nav overlay clearfix">
         {% if page.logo %}<a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ site.baseurl }}{{ page.logo }}" alt="Blog Logo" /></a>{% endif %}
         {% if page.navigation %}
@@ -85,11 +85,7 @@ current: home
     <h1 id="data">Data</h1>
     <h1 id="analysis">Analysis</h1>
     <h1 id="results">Results</h1>
-    <p>{{ site.baseurl }}</p>
-    <p>{{ site.baseurl }}{{page.cover}}</p>
-
-    <img src="{{ site.baseurl }}{{page.cover}}" alt="Description of image">
-    <img src="/ada-2024-project-alpacadreamagency/story-web/assets/images/film-reel-2.jpg" alt="Description of ">
 
     
+
 </main>
