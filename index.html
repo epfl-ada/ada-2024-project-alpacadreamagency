@@ -81,13 +81,13 @@ current: home
         justify-content: center; /* Horizontally center */
         align-items: center;     /* Vertically center (if needed) */
         width: 100%;             /* Full width of the parent container */
-        height: auto;            /* Adjust based on content */
-        margin: 20px auto;       /* Center on the page and add spacing */
+        /*height: auto;            /* Adjust based on content */
+        margin: 60px auto;       /* Center on the page and add spacing */
     }
     
     .iframe-plot {
         max-width: 100%;         /* Responsive width */
-        height: 300px;           /* Adjust the iframe height */
+        /*height: 300px;           /* Adjust the iframe height */
         border: 1px solid #ccc;  /* Optional border for clarity */
         border-radius: 5px;      /* Optional rounded corners */
         display: block;          /* Ensure it's treated as a block-level element */
@@ -379,6 +379,9 @@ current: home
                 the tears of a heartfelt drama, or the 
                 laughs of a lighthearted comedy, genres provide the lens through which we view and connect with movies.</p>
             
+
+            <h5 class="sub-titles">A Slice of the Genre Pie 🍰</h5>
+
                 <div class="iframe-container">
                     <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/num_movies.html" 
                             width="80%" 
@@ -387,7 +390,6 @@ current: home
                 </div>
 
     
-            <h5 class="sub-titles">A Slice of the Genre Pie 🍰</h5>
 
                     <p class="main-sub-text">To start off, this delightful pie chart gives us a bird’s-eye 
                         view of the distribution of movies across genres. Here’s what stands out:
@@ -402,14 +404,16 @@ current: home
                     </p>
                     
 
+
+            <h5 class="sub-titles">Connections Across the Movie-Verse</h5>
+
                     <div class="iframe-container">
-                        <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/'chord_plot.html" 
+                        <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/chord_plot.html" 
                                 width="80%" 
                                 height="400px" 
                                 frameborder="0"></iframe>
                     </div>
 
-            <h5 class="sub-titles">Connections Across the Movie-Verse</h5>
 
                     <p class="main-sub-text">If genres are the personality traits of movies, 
                         this graph is like watching them interact at a party—and oh boy, some
@@ -435,14 +439,16 @@ current: home
                         genre classification more complex but also show why some movies resonate with broader audiences.</p>
 
 
+
+            <h5 class="sub-titles">Romance vs. Horror: A Love-Hate Relationship (with Numbers)</h5>
+
                         <div class="iframe-container">
-                            <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/'variable_heatmap.html" 
+                            <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/variable_heatmap.html" 
                                     width="80%" 
                                     height="400px" 
                                     frameborder="0"></iframe>
                         </div>
 
-            <h5 class="sub-titles">Romance vs. Horror: A Love-Hate Relationship (with Numbers)</h5>
 
                     <p class="main-sub-text">When you pit romance against horror, what do you get? A mathematical tug-of-war between love and fear, captured perfectly in these heatmaps. But here’s the twist: the correlations you see here aren’t standalone—they’re romance minus horror. That’s right, it’s a love story where the data takes the spotlight.
                         <br><br>The bright yellow spots reveal where romance dominates: longer plots and a preference for actors aged 20-40. Clearly, romance movies take their sweet time setting up the perfect meet-cute, while horror is more about “Who’s going to die next?” in as few words as possible.
@@ -460,15 +466,17 @@ current: home
                 with emotional depth. Well, wonder no more! Let’s 
                 take a closer look at the fascinating relationship between who’s in a movie and what kind of movie it is.</p>
             
+
+            <h5 class="sub-titles">Stacked Bars of Genre Glory</h5>
+
                 <div class="iframe-container">
-                    <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/'age_genre_bar.html" 
+                    <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/age_genre_bar.html" 
                             width="80%" 
                             height="400px" 
                             frameborder="0"></iframe>
                 </div>
 
 
-            <h5 class="sub-titles">Stacked Bars of Genre Glory</h5>
 
                     <p class="main-sub-text">The stacked bar chart takes the exploration to the next level. Here, 
                         you can compare how different genres 
@@ -666,8 +674,8 @@ current: home
 
                     <div class="iframe-container">
                         <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/sentiment_theme.html" 
-                                width="80%" 
-                                height="400px" 
+                                width="60%" 
+                                height="500px" 
                                 frameborder="0"></iframe>
                     </div>
                     <p class="main-sub-text">Comparing Spearman and Pearson is like watching two critics agree on the 
@@ -693,19 +701,5 @@ current: home
                 Enter our movie genre predictor model, where data speaks louder than human guesswork.</p>
 
 
-    <br><br><br>
-    <h1>to delete later</h1>
-
-    <p class="main-text"></p>
-
-    <div class="iframe-container">
-        <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/saved_plot.html" 
-                width="80%" 
-                height="400px" 
-                frameborder="0"></iframe>
-    </div>
-    
-    
-    <img class="graph-photos" src="{{ site.baseurl }}assets/images/graphs/movies-per-year.png" alt="Movies Per Year Plot" />
 
 </main>
