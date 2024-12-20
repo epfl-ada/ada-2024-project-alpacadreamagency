@@ -1,7 +1,7 @@
 ---
 layout: default
 title: ADA STORY
-cover: 'assets/images/film-reel-1.jpg'
+cover: 'assets/images/ada/film-reel-1.jpg'
 class: 'home-template'
 navigation: True
 logo: 'assets/images/Corcodile.png'
@@ -29,6 +29,45 @@ current: home
         margin: 0 auto; /* Center align horizontally */
         text-align: center; /* Keep the text aligned */
     }
+
+    .section-titles {
+        margin-left: 118px; 
+        margin-top: 3%; 
+        text-align: left;
+        font-style: normal;
+    }
+
+    .main-text {
+        text-align: left;
+        font-size: 16px; /* Adjust the size as needed */
+        /*margin: 0 0 1.75em 0;*/
+        margin: 118px;
+        margin-top: 13px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+        font-style: normal;
+    }
+    .sub-titles {
+        margin-left: 140px; 
+        margin-top: 2%; 
+        text-align: left;
+        font-style: normal;
+    }
+
+    .main-sub-text {
+        text-align: left;
+        font-size: 16px; /* Adjust the size as needed */
+        /*margin: 0 0 1.75em 0;*/
+        margin: 140px;
+        margin-top: 8px;
+        margin-bottom: 5px;
+        line-height: 1.4;
+        font-style: normal;
+    }
+    ul {
+    list-style-type: square; /* Use square bullets instead of default */
+    margin-left: 160px;
+    }
         
 </style>
 
@@ -36,6 +75,7 @@ current: home
 <header class="main-header {% if page.cover %}"
         style="background-image: url({{ site.baseurl }}{{ page.cover }}) {% else %}no-cover{% endif %}">
     <nav class="main-nav overlay clearfix">
+        
         {% if page.logo %}<a class="blog-logo" href="{{ site.baseurl }}about"><img src="{{ site.baseurl }}{{ page.logo }}" alt="Blog Logo" /></a>{% endif %}
         {% if page.navigation %}
             <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
@@ -79,13 +119,96 @@ current: home
 
 <!-- The main content area on the homepage -->
 <main id="content" class="content" role="main">
-    <h1 class="page-title">{{ site.name }}</h1>
-    <h2 class="page-description">{{ site.description }}</h2>
+    
+    <h1 id="main-title" style="margin-inline: 10%; text-align: center;font-style: normal; text-transform: uppercase;">Predicting Genre From Data - A Movie Classification Project</h1>
+    
+    <h4 style=" text-align: center;font-style: normal;">~Discover the Hidden Secrets Behind Movie Genres~</h4>
+    <hr style="width: 50%; margin: auto; border: 1px solid #000;">
+    
+    <h4 id="intro" class="section-titles">Why Dive Into the Genre Jungle When We Could Just Watch Netflix? <br> <em>~A Generic Introduction~</em></h4> 
+    
+    <p class="main-text">Movies are more than just entertainment — they are windows into 
+        stories that inspire, thrill, and move us. With over a century of cinema and thousands 
+        of movies spanning genres like drama, action, romance, horror, and sci-fi, there’s always
+         a perfect film waiting to match your mood. But here’s the catch: how do you choose?</p>
+    <p class="main-text">When scrolling through endless options on Netflix or Disney+, 
+        the genre is often our guiding light. It tells us what to expect — a nail-biting 
+        thriller, a heartwarming comedy, or a mind-bending sci-fi adventure. 
+        But how accurate are these genres? How often do they represent the true essence of the movie?</p>
+    <p class="main-text">This question sparked our curiosity. What if movies could 
+        speak for themselves? What if their data — runtime, actors,
+         themes, even emotions — could automatically reveal the genres they truly belong to?</p>
+    <p class="main-text">In this project, we dive into the fascinating world of movie genres to 
+        uncover the characteristics that define them. From analyzing hidden patterns in data to 
+        testing machine learning models, we set out to answer one big question:
+        <b>Can we predict a movie’s genre using only its data?</b></p>
+    <p class="main-text">Ready to see movies in a new light? Let’s begin!</p>
 
-    <h1 id="data">Data</h1>
-    <h1 id="analysis">Analysis</h1>
-    <h1 id="results">Results</h1>
 
-    <p>new ver? pleasseee</p>
+    <h4 id="data" class="section-titles">Data <em>~In Action~</em></h4>
+    <p class="main-text">To explore what truly defines a movie genre, we needed data — and lots of it. 
+        The backbone of our 
+        analysis is two extensive datasets, each offering a unique glimpse into the world of cinema:</p>
+
+    <h5 class="sub-titles">1. The CMU Movie Summary Corpus</h5>
+
+    <p class="main-sub-text">This dataset, sourced from movie summaries on Wikipedia as of 2012, 
+        provides detailed information for over 42,000 movies. It includes key attributes such 
+        as movie titles, release dates, genres, and plot summaries, giving us a textual and structural 
+        foundation to analyze what movies are made of. Beyond movies themselves, characters are at the 
+        heart of every story. This dataset also dives deep into the personas of movie characters, covering 
+        actor details like age, gender, and character roles. It also includes character-related data such 
+        as stereotypes, 
+        age groups, and sentiment, providing insights into how characters shape and reflect genres.</p>
+
+    <h5 class="sub-titles">2. The TMDb Dataset</h5>
+    <p class="main-sub-text">To enrich our exploration, we incorporated the publicly available 
+        dataset TMDb (The Movie Database). This dataset adds layers of information such as runtime,
+         budgets, revenues, 
+        popularity, and votes, helping us understand how movie characteristics vary across genres.</p>
+    
+    
+    <p class="main-text"> By combining these datasets, we ended up with a rich collection of movie 
+        and character data, spanning decades of cinematic history — from the early 20th century to 2016. 
+        Altogether, this means analyzing tens of thousands of movies and characters, each contributing 
+        to the intricate puzzle of genre classification.
+       </p>
+  
+    <p class="main-text">With this treasure trove of information, we’re ready to uncover the patterns and relationships that define movie genres. 
+        From plot lengths to actor demographics, our data helps movies speak for themselves.</p>
+
+
+    <p class="main-text"><b>Now, with the help of our datasets, we can start by looking at some general facts about movies.</b></p>
+    
+    <h5 class="sub-titles">Movies Through the Decades: A Cinematic Boom</h5>
+
+    <p class="main-sub-text">As we can see, movies have become a significant part of our lives and a cornerstone of entertainment.
+        <br>In the early years (before the 1920s), movie production was sparse as the film industry was still in its infancy. As technology advanced and filmmaking became more accessible, we see a steady rise in the number of films produced, particularly from the 1930s onward.
+        <br>Interestingly, there are noticeable dips around the 1940s, likely due to World War II, which disrupted global film production. However, the industry rebounded post-war, continuing to grow steadily through the mid-20th century.
+        <br>The real explosion in movie production occurs from the 1980s onwards, reaching its peak in the early 2000s. This surge can be attributed to:
+        <ul>
+            <li>Advances in technology and filmmaking techniques.</li>
+            <li>The rise of global film markets and independent cinema.</li>
+            <li>The accessibility of digital filmmaking, which drastically lowered production costs.</li>
+        </ul>
+    </p>
+    <h5 class="sub-titles">Box Office Battles: Ratings, Revenues, and the Rise of the Blockbuster</h5>
+
+    
+    
+    <p class="main-text"></p>
+    <p class="main-text"></p>
+
+
+
+
+    <h4 id="stats" class="section-titles">The Statistics of Storytelling <em>~Science or Fiction?~</em></h4>
+
+
+
+    <p class="main-text"></p>
+
+
+    
 
 </main>
