@@ -117,9 +117,9 @@ The data is stored locally as the files are too large. The directory structure o
   - **[`results/`](./data_analysis/results.ipynb)**: Main run file for neural network, data handling and data analysis
 
 
-  - **[`additional_static_plots/`](./additional_static_plots)**: Stores new genres (categories) and corresponding subgenres
+  - **[`additional_static_plots/`](./additional_static_plots.ipynb)**: some more static plots
 
-
+  - **['interactive_plots'/`](./interactive_plots.ipynb)**: interactive plots
 
 - **[`gitignore/`](./.gitignore)**: List of files ignored by git
 
