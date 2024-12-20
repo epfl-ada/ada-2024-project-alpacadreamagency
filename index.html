@@ -282,7 +282,12 @@ current: home
                         industry, where romance (blue) and horror (red) duke it out on the battlefield of budgets, revenues, and ratings. Nestled in our "overview of the data" section, this visual spectacle showcases how these genres have entirely 
                         different strategies for stealing the audience's hearts—or scaring the popcorn out of their hands.</p>
                     
-    <h1>insert plot</h1>
+                        <div class="iframe-container">
+                            <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/bubble_plot.html" 
+                                    width="80%" 
+                                    height="400px" 
+                                    frameborder="0"></iframe>
+                        </div>
 
 
                     <p class="main-sub-text">Romance and horror couldn't be more different when it comes to budgets, 
@@ -374,7 +379,12 @@ current: home
                 the tears of a heartfelt drama, or the 
                 laughs of a lighthearted comedy, genres provide the lens through which we view and connect with movies.</p>
             
-    <h1>INSERT PIE CHART</h1>
+                <div class="iframe-container">
+                    <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/num_movies.html" 
+                            width="80%" 
+                            height="400px" 
+                            frameborder="0"></iframe>
+                </div>
 
     
             <h5 class="sub-titles">A Slice of the Genre Pie 🍰</h5>
@@ -392,7 +402,12 @@ current: home
                     </p>
                     
 
-    <h1>INSERT COOL GRAPH</h1>
+                    <div class="iframe-container">
+                        <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/'chord_plot.html" 
+                                width="80%" 
+                                height="400px" 
+                                frameborder="0"></iframe>
+                    </div>
 
             <h5 class="sub-titles">Connections Across the Movie-Verse</h5>
 
@@ -420,7 +435,12 @@ current: home
                         genre classification more complex but also show why some movies resonate with broader audiences.</p>
 
 
-    <h1>INSERT BLUE - YELLOW GRAPH</h1>
+                        <div class="iframe-container">
+                            <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/'variable_heatmap.html" 
+                                    width="80%" 
+                                    height="400px" 
+                                    frameborder="0"></iframe>
+                        </div>
 
             <h5 class="sub-titles">Romance vs. Horror: A Love-Hate Relationship (with Numbers)</h5>
 
@@ -440,7 +460,12 @@ current: home
                 with emotional depth. Well, wonder no more! Let’s 
                 take a closer look at the fascinating relationship between who’s in a movie and what kind of movie it is.</p>
             
-    <h1>INSERT STACKED BARS</h1>
+                <div class="iframe-container">
+                    <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/'age_genre_bar.html" 
+                            width="80%" 
+                            height="400px" 
+                            frameborder="0"></iframe>
+                </div>
 
 
             <h5 class="sub-titles">Stacked Bars of Genre Glory</h5>
@@ -471,6 +496,17 @@ current: home
                                 height="400px" 
                                 frameborder="0"></iframe>
                     </div>
+
+                    <p class="main-sub-text">It seems like male actors are throwing a party and forgot to 
+                        send the invites to their female counterparts. In action-packed genres like War/Combat, 
+                        Political, and Action/Adventure, men are dominating the stage like it’s a testosterone-fueled 
+                        festival. Meanwhile, women in genres like Horror, Holiday Films, and Romance seem to be stuck 
+                        playing “Where’s Waldo,” with their numbers as tiny as the budget for a low-budget indie flick. 
+                        However, there are glimmers of hope—genres like Friendships, Family & Personal Relationships and
+                         Indie seem to be more gender-inclusive, proving that sometimes, all it takes is a good script 
+                         (or maybe just better casting directors). So while the industry 
+                        may still have a ways to go, at least in certain genres, the plot is thickening in favor of diversity.
+                    </p>
 
 
     
@@ -523,7 +559,17 @@ current: home
                     <p class="main-sub-text">This contrast shows how genres cater to 
                         completely different storytelling styles and emotional experiences.
                     </p>
-    <h1>Insert wordcloud  action classical</h1>
+
+                    <div class="container">
+                        <div class="image-section">
+                            <img src="{{ site.baseurl }}assets/images/graphs/words_cloud/actionadventure.png" alt="Movies Per Year Plot">
+                        </div>
+
+                        <div class="image-section">
+                            <img src="{{ site.baseurl }}assets/images/graphs/words_cloud/classical.png" alt="Movies Per Year Plot">
+                        </div>
+
+                    </div>
 
 
 
@@ -554,8 +600,13 @@ current: home
                     
 
 
-                    <h5 class="sub-titles">Mood Swing Cinema: Which Genres Make You Cry, Cheer, or Scream?</h5>
-<h1>insert sentiment</h1>
+            <h5 class="sub-titles">Mood Swing Cinema: Which Genres Make You Cry, Cheer, or Scream?</h5>
+                    <div class="iframe-container">
+                        <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/sentiment_genre.html" 
+                                width="80%" 
+                                height="400px" 
+                                frameborder="0"></iframe>
+                    </div>
                     <p class="main-sub-text">This graph dives into the emotional tones of movie plots, measuring 
                         whether they lean positive, negative, 
                         or somewhere in between. Here are some key takeaways from the sentiment analysis across genres:
@@ -599,6 +650,41 @@ current: home
                         </ul>
                     </p>
     
+            <h5 class="sub-titles">Cinema’s Emotional Rollercoaster: Themes Meet Feels</h5>
+                    <p class="main-sub-text">Movies aren’t just about explosions or dramatic gazes—they’re emotional 
+                        powerhouses fueled by themes. From the warm fuzzies of love to the soul-crushing doom of tragedy, 
+                        this Pearson 
+                        correlation chart spills the tea on how themes dictate our emotional highs and lows. Let’s break it down!
+                    </p>
+                    <p class="main-sub-text">No shocker here—happiness is riding high on the positivity train, while
+                         death and tragedy are dragging us into the emotional abyss. Love keeps it balanced, sprinkling 
+                         joy with a dash of drama, because life’s complicated, right? Meanwhile, fear and revenge lurk in
+                          the shadows, perfect companions for horror and thrillers. Themes like family and hope try their
+                           best to keep things wholesome, while justice and survival 
+                        walk the fine line between triumph and despair. It’s a plot twist of emotions—just the way we like it!
+                    </p>
+
+                    <div class="iframe-container">
+                        <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/sentiment_theme.html" 
+                                width="80%" 
+                                height="400px" 
+                                frameborder="0"></iframe>
+                    </div>
+                    <p class="main-sub-text">Comparing Spearman and Pearson is like watching two critics agree on the 
+                        big stuff but bicker over the details. Both call happiness the MVP of good vibes and death the 
+                        ultimate buzzkill, so no surprises there. Spearman, the rank-obsessed cousin, focuses on consistent 
+                        mood trends—like how fear reliably tanks sentiment. Meanwhile, Pearson, the linear thinker, cares about 
+                        exact proportional relationships, making themes like justice and family seem less impactful. 
+                        Bottom line: they both agree on the plot twist (death = bad vibes), 
+                        but their perspectives make them a dynamic duo for dissecting cinema’s emotional themes!
+                    </p>
+                    <p class="main-sub-text">While Spearman and Pearson bickered over correlations and sentimental nuances, 
+                        it’s time to shift gears and dive into something a bit more predictive. If themes and sentiments reveal 
+                        the soul of a story, can we use that knowledge to peek into the future? Enter the movie genre predictor
+                         model, where algorithms swap their popcorn for data-crunching to determine if they can guess a movie's
+                          genre based on its plot. Let’s see if machines can steal the show!
+
+                    </p>
     
     
     <h3 id="models" class="section-titles">Movie Genre Predictor Model<em> ~Adventures in Machine Learning~</em></h3>
