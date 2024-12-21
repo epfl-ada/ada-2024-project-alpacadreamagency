@@ -721,7 +721,11 @@ current: home
                 </ul>
                 <p class="main-sub-text">At the "leaves" of the tree (the end points), the algorithm decides whether your movie belongs to a specific genre or not one at a time: We are going to have one tree per genre, each ruled by different split decisions. Decision trees are straightforward, intuitive, and great for explaining why a movie is classified the way it is — like Sherlock Holmes explaining his deductions.
                 </p>
+                <div class="container">
+                    <div class="image-section">
                 <img style="height: 260px;width: auto;" src="{{ site.baseurl }}assets/images/ada/decission.jpeg" alt="Decission trees">
+            </div>
+        </div>
 
             <h5 class="sub-titles">Random Forest: A Party of Trees</h5>
                 <p class="main-sub-text">A single tree is good, but sometimes it can overthink or overfit and look, being a lonly tree is sad, isn’t it?. Random forests solve this by creating lots of decision trees, each trained on slightly different subsets of the data using techniques like bootstrap. For every genre we have a forest: Every tree votes, and the majority vote decides the fate of the movies (belongs or not belongs to that genre…).
@@ -730,7 +734,11 @@ current: home
                     <li>Why is this cool? If one tree says "yes" and the others say "no," the forest can overrule the rogue tree.                    </li>
                     <li>Think of it as a jury trial for your movie: each tree is a juror, and together they make the final decision.                    </li>
                 </ul>
+                <div class="container">
+                    <div class="image-section">
                 <img style="height: 260px;width: auto;" src="{{ site.baseurl }}assets/images/ada/Random_forest.jpeg" alt="Random Forest">
+            </div>
+        </div>
                 <p class="main-sub-text">Random forests add robustness and reduce the risk of a single bad tree messing everything up.                </p>
             
             <h5 class="sub-titles">K-Nearest Neighbors (KNN): The Neighborhood Watch</h5>
@@ -743,7 +751,11 @@ current: home
                     <li>It checks what genres those neighbors belong to and assigns your movie the genre that’s most common among them.                   </li>
                     <li>For each genre, it looks how many of those neighbours belong to it, then if more than half of them do, it decides that our new movie also does belong to that genre.                 </li>
                 </ul>
+                <div class="container">
+                    <div class="image-section">
                 <img style="height: 260px;width: auto;" src="{{ site.baseurl }}assets/images/ada/knn.jpeg" alt="KNN">
+            </div>
+        </div>
                 <p class="main-sub-text">This method is simple but effective. For example, if your movie is surrounded by romantic comedies, chances are it’s one too. It’s like asking your closest friends, "What genre does this movie feel like to you?"                </p>
             
             
@@ -753,7 +765,11 @@ current: home
                     <li>Imagine you’re plotting movies on a graph with two axes (say, budget and runtime). Regression draws a line to separate the genres.Example: If the line is "below 2 times minutes and 0.5 times budget”, it’s a comedy; above that, it’s not.</li>
                     <li>If we have more dimensions (more features), instead of a line we have a hyperplane that divides the hyperspace.</li>
                 </ul>
+                <div class="container">
+                    <div class="image-section">
                 <img style="height: 260px;width: auto;" src="{{ site.baseurl }}assets/images/ada/regression.jpeg" alt="Regression">
+            </div>
+        </div>
                 <p class="main-sub-text">The regression model finds the best hyperplane for each genre. Then uses that as a rule to divide the hyperspace for each genre into two parts. One by one, if moves are on one side of a hyperplane or on the other, they belong or not to a genre.                </p>
                 <p class="main-sub-text">We use a regularized version of the standard regression, the Ridge Regression. It avoids overfitting,  making it a super-efficient classifier. It’s straightforward, though not as flashy as neural networks.                </p>
             
@@ -770,8 +786,11 @@ current: home
             <p class="main-sub-text">Why is this powerful? Neural networks can find relationships in the data that simpler models might miss. For instance, they might learn that movies with "high budgets + long runtimes + low vote counts" are often historical dramas or something even more complex!. </p>
             <p class="main-sub-text">However, they are not that easy to train, neither to interpret  — so we think of them like a black box of genius. We are going to use two kind of Neural Networks. One on a box-like shape and one with a U-like shape. </p>
             <p class="main-sub-text">The fist one has more neurons and so is able to get more complex relations between the features. Meanwhile, the U-shape one “compresses” the data in fewer neurons so the information can be mixed. Then, both rescale the layers into the right size to make the predicition.</p>
-            
+            <div class="container">
+                <div class="image-section">
             <img style="height: 260px;width: auto;" src="{{ site.baseurl }}assets/images/ada/neural_networks.jpeg" alt="Regression">
+        </div>
+    </div>
             <h5 class="sub-titles">Why Use These Models Together?</h5>
             <p class="main-sub-text">Each model has its strengths:</p>
                 <ul class="story-ul">
