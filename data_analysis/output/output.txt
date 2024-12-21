@@ -1,0 +1,215 @@
+Reference f_score = 0.3790 with <class 'sklearn.tree._classes.DecisionTreeClassifier'>
+ · Optimizing with: death
+   - Fscore =  0.3428 Excluding: death.
+ · Optimizing with: love
+   - Fscore =  0.3770 Excluding: love.
+ · Optimizing with: tragedy
+   - Fscore =  0.3790 Excluding: tragedy.
+ · Optimizing with: violence
+   - Fscore =  0.3718 Excluding: violence.
+ · Optimizing with: betrayal
+   - Fscore =  0.3790 Excluding: betrayal.
+ · Optimizing with: friendship
+   - Fscore =  0.3798 Excluding: friendship.
+ · Optimizing with: happiness
+   - Fscore =  0.3788 Excluding: happiness.
+ · Optimizing with: fear
+   - Fscore =  0.3791 Excluding: fear. --------
+ · Optimizing with: revenge
+   - Fscore =  0.3791 Excluding: revenge. --------
+ · Optimizing with: justice
+   - Fscore =  0.3792 Excluding: justice. --------
+ · Optimizing with: hope
+   - Fscore =  0.3789 Excluding: hope.
+ · Optimizing with: family
+   - Fscore =  0.3790 Excluding: family.
+ · Optimizing with: fate
+   - Fscore =  0.3788 Excluding: fate.
+ · Optimizing with: greed
+   - Fscore =  0.3788 Excluding: greed.
+ · Optimizing with: survival
+   - Fscore =  0.3794 Excluding: survival. --------
+ · Optimizing with: transformation
+   - Fscore =  0.3790 Excluding: transformation.
+ · Optimizing with: Male actor count
+   - Fscore =  0.3799 Excluding: Male actor count. --------
+ · Optimizing with: Female actor count
+   - Fscore =  0.3602 Excluding: Female actor count.
+ · Optimizing with: N/A actor count
+   - Fscore =  0.3791 Excluding: N/A actor count. --------
+ · Optimizing with: Character Count
+   - Fscore =  0.3827 Excluding: Character Count. --------
+ · Optimizing with: Actors 0-20
+   - Fscore =  0.3735 Excluding: Actors 0-20.
+ · Optimizing with: Actors 20-30
+   - Fscore =  0.3784 Excluding: Actors 20-30.
+ · Optimizing with: Actors 30-40
+   - Fscore =  0.3793 Excluding: Actors 30-40. --------
+ · Optimizing with: Actors 40-60
+   - Fscore =  0.3793 Excluding: Actors 40-60. --------
+ · Optimizing with: Actors 60+
+   - Fscore =  0.3791 Excluding: Actors 60+. --------
+ · Optimizing with: Character Count
+   - Fscore =  0.3827 Excluding: Character Count. --------
+ · Optimizing with: revenue
+   - Fscore =  0.3757 Excluding: revenue.
+ · Optimizing with: runtime
+   - Fscore =  0.3094 Excluding: runtime.
+ · Optimizing with: release_year
+   - Fscore =  0.3463 Excluding: release_year.
+ · Optimizing with: vote_average
+   - Fscore =  0.3745 Excluding: vote_average.
+ · Optimizing with: vote_count
+   - Fscore =  0.3766 Excluding: vote_count.
+ · Optimizing with: adult
+   - Fscore =  0.3790 Excluding: adult.
+ · Optimizing with: budget
+   - Fscore =  0.3755 Excluding: budget.
+ · Optimizing with: popularity
+   - Fscore =  0.3798 Excluding: popularity. --------
+ · Optimizing with: sentiment
+   - Fscore =  0.3736 Excluding: sentiment.
+Reference f_score = 0.3808 with <class 'sklearn.ensemble._forest.RandomForestClassifier'> ['death','love','tragedy','betrayal','fear','justice','fate','survival', 'Male actor count', 'Character Count', 'Actors 0-20'
+'Actors 0-20', 'Actors 60+', 'Character Count', 'adult', 'budget', 'popularity'
+]
+ · Optimizing with: death
+   - Fscore =  0.3741 Excluding: death.
+ · Optimizing with: love
+   - Fscore =  0.3846 Excluding: love. --------
+ · Optimizing with: tragedy
+   - Fscore =  0.3839 Excluding: tragedy. --------
+ · Optimizing with: violence
+   - Fscore =  0.3788 Excluding: violence.
+ · Optimizing with: betrayal
+   - Fscore =  0.3854 Excluding: betrayal. --------
+ · Optimizing with: friendship
+   - Fscore =  0.3783 Excluding: friendship.
+ · Optimizing with: happiness
+   - Fscore =  0.3795 Excluding: happiness.
+ · Optimizing with: fear
+   - Fscore =  0.3809 Excluding: fear. --------
+ · Optimizing with: revenge
+   - Fscore =  0.3790 Excluding: revenge.
+ · Optimizing with: justice
+   - Fscore =  0.3824 Excluding: justice. --------
+ · Optimizing with: hope
+   - Fscore =  0.3804 Excluding: hope.
+ · Optimizing with: family
+   - Fscore =  0.3807 Excluding: family.
+ · Optimizing with: fate
+   - Fscore =  0.3811 Excluding: fate. --------
+ · Optimizing with: greed
+   - Fscore =  0.3804 Excluding: greed.
+ · Optimizing with: survival
+   - Fscore =  0.3829 Excluding: survival. --------
+ · Optimizing with: transformation
+   - Fscore =  0.3829 Excluding: transformation. --------
+ · Optimizing with: Male actor count
+   - Fscore =  0.3839 Excluding: Male actor count. --------
+ · Optimizing with: Female actor count
+   - Fscore =  0.3832 Excluding: Female actor count.
+ · Optimizing with: N/A actor count
+   - Fscore =  0.3778 Excluding: N/A actor count.
+ · Optimizing with: Character Count
+   - Fscore =  0.3847 Excluding: Character Count. --------
+ · Optimizing with: Actors 0-20
+   - Fscore =  0.3883 Excluding: Actors 0-20. --------
+ · Optimizing with: Actors 20-30
+   - Fscore =  0.3831 Excluding: Actors 20-30. --------
+ · Optimizing with: Actors 30-40
+   - Fscore =  0.3784 Excluding: Actors 30-40.
+ · Optimizing with: Actors 40-60
+   - Fscore =  0.3789 Excluding: Actors 40-60.
+ · Optimizing with: Actors 60+
+   - Fscore =  0.3821 Excluding: Actors 60+. --------
+ · Optimizing with: Character Count
+   - Fscore =  0.3847 Excluding: Character Count. --------
+ · Optimizing with: revenue
+   - Fscore =  0.3803 Excluding: revenue.
+ · Optimizing with: runtime
+   - Fscore =  0.3367 Excluding: runtime.
+ · Optimizing with: release_year
+   - Fscore =  0.3559 Excluding: release_year.
+ · Optimizing with: vote_average
+   - Fscore =  0.3745 Excluding: vote_average.
+ · Optimizing with: vote_count
+   - Fscore =  0.3772 Excluding: vote_count.
+ · Optimizing with: adult
+   - Fscore =  0.3822 Excluding: adult. --------
+ · Optimizing with: budget
+   - Fscore =  0.3812 Excluding: budget. --------
+ · Optimizing with: popularity
+   - Fscore =  0.3818 Excluding: popularity. --------
+ · Optimizing with: sentiment
+   - Fscore =  0.3765 Excluding: sentiment.
+Reference f_score = 0.3490 with <class 'sklearn.neighbors._classification.KNeighborsClassifier'>
+ · Optimizing with: death
+   - Fscore =  0.3499 Excluding: death. --------
+ · Optimizing with: love
+   - Fscore =  0.3510 Excluding: love. --------
+ · Optimizing with: tragedy
+   - Fscore =  0.3492 Excluding: tragedy. --------
+ · Optimizing with: violence
+   - Fscore =  0.3482 Excluding: violence.
+ · Optimizing with: betrayal
+   - Fscore =  0.3492 Excluding: betrayal.
+ · Optimizing with: friendship
+   - Fscore =  0.3502 Excluding: friendship. --------
+ · Optimizing with: happiness
+   - Fscore =  0.3492 Excluding: happiness.
+ · Optimizing with: fear
+   - Fscore =  0.3494 Excluding: fear. --------
+ · Optimizing with: revenge
+   - Fscore =  0.3488 Excluding: revenge.
+ · Optimizing with: justice
+   - Fscore =  0.3500 Excluding: justice. --------
+ · Optimizing with: hope
+   - Fscore =  0.3499 Excluding: hope. --------
+ · Optimizing with: family
+   - Fscore =  0.3494 Excluding: family. --------
+ · Optimizing with: fate
+   - Fscore =  0.3490 Excluding: fate.
+ · Optimizing with: greed
+   - Fscore =  0.3496 Excluding: greed.
+ · Optimizing with: survival
+   - Fscore =  0.3506 Excluding: survival. --------
+ · Optimizing with: transformation
+   - Fscore =  0.3493 Excluding: transformation. --------
+ · Optimizing with: Male actor count
+   - Fscore =  0.3454 Excluding: Male actor count.
+ · Optimizing with: Female actor count
+   - Fscore =  0.3489 Excluding: Female actor count.
+ · Optimizing with: N/A actor count
+   - Fscore =  0.3485 Excluding: N/A actor count.
+ · Optimizing with: Character Count
+   - Fscore =  0.3484 Excluding: Character Count.
+ · Optimizing with: Actors 0-20
+   - Fscore =  0.3500 Excluding: Actors 0-20. --------
+ · Optimizing with: Actors 20-30
+   - Fscore =  0.3480 Excluding: Actors 20-30.
+ · Optimizing with: Actors 30-40
+   - Fscore =  0.3501 Excluding: Actors 30-40. --------
+ · Optimizing with: Actors 40-60
+   - Fscore =  0.3473 Excluding: Actors 40-60.
+ · Optimizing with: Actors 60+
+   - Fscore =  0.3513 Excluding: Actors 60+. --------
+ · Optimizing with: Character Count
+   - Fscore =  0.3484 Excluding: Character Count.
+ · Optimizing with: revenue
+   - Fscore =  0.3530 Excluding: revenue. --------
+ · Optimizing with: runtime
+   - Fscore =  0.3088 Excluding: runtime.
+ · Optimizing with: release_year
+   - Fscore =  0.3195 Excluding: release_year.
+ · Optimizing with: vote_average
+   - Fscore =  0.3491 Excluding: vote_average. --------
+ · Optimizing with: vote_count
+   - Fscore =  0.3531 Excluding: vote_count. --------
+ · Optimizing with: adult
+   - Fscore =  0.3490 Excluding: adult.
+ · Optimizing with: budget
+   - Fscore =  0.3497 Excluding: budget. --------
+ · Optimizing with: popularity
+   - Fscore =  0.3490 Excluding: popularity.
+ · Optimizing with: sentiment
+   - Fscore =  0.3503 Excluding: sentiment. --------

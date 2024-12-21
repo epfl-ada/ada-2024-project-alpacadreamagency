@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Page Meta -->
+    <title>ADA STORY</title>
+    <meta name="description" content="Predicting genre" />
+
+    <!-- Mobile Meta -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Brand icon -->
+    <link rel="shortcut icon" href="/ada-2024-project-alpacadreamagency/assets/images/favicon.ico" >
+
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/ada-2024-project-alpacadreamagency/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/ada-2024-project-alpacadreamagency/assets/css/syntax.css" />
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!-- Ghost outputs important style and meta data with this tag -->
+        <link rel="canonical" href="/ada-2024-project-alpacadreamagency//" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/ada-2024-project-alpacadreamagency/page2/" />
+
+    <meta property="og:site_name" content="ADA story" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ADA STORY" />
+    <meta property="og:description" content="Predicting genre" />
+    <meta property="og:url" content="/ada-2024-project-alpacadreamagency//" />
+    <meta property="og:image" content="/ada-2024-project-alpacadreamagency/assets/images/film-reel-1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ADA STORY" />
+    <meta name="twitter:description" content="Predicting genre" />
+    <meta name="twitter:url" content="/ada-2024-project-alpacadreamagency//" />
+    <meta name="twitter:image:src" content="/ada-2024-project-alpacadreamagency/assets/images/film-reel-1.jpg" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "ADA story",
+    "name": "ADA STORY",
+    "url": "/ada-2024-project-alpacadreamagency//",
+    "image": "/ada-2024-project-alpacadreamagency/assets/images/film-reel-1.jpg",
+    "description": "Predicting genre"
+}
+    </script>
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="ADA story" href="/ada-2024-project-alpacadreamagency/feed.xml" />
+
+
+</head>
+<body class="home-template nav-closed">
+
+    <!-- The blog navigation links -->
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        <li class="nav-home  nav-current" role="presentation"><a href="/ada-2024-project-alpacadreamagency/">Prologue</a></li>
+        <li class="nav-main-title" role="presentation"><a href="/ada-2024-project-alpacadreamagency/#main-title">The Story</a></li>
+        <li class="nav-intro" role="presentation"><a href="/ada-2024-project-alpacadreamagency/#intro">Introduction</a></li>
+        <li class="nav-data" role="presentation"><a href="/ada-2024-project-alpacadreamagency/#data">Data</a></li>
+        <li class="nav-stats" role="presentation"><a href="/ada-2024-project-alpacadreamagency/#stats">Statistics</a></li>
+        <li class="nav-genre" role="presentation"><a href="/ada-2024-project-alpacadreamagency/#genre">Genre</a></li>
+        <li class="nav-models" role="presentation"><a href="/ada-2024-project-alpacadreamagency/#models">Models</a></li>
+        <li class="nav-epilogue" role="presentation"><a href="/ada-2024-project-alpacadreamagency/#epilogue">Epilogue</a></li>
+        
+
+
+
+   
+        
+        <li class="nav-about " role="presentation"><a href="/ada-2024-project-alpacadreamagency/about">About</a></li>
+    </ul>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <style>
+    .small-text {
+        font-size: 16px; /* Adjust the size as needed */
+        /*margin: 0 0 1.75em 0;*/
+        margin: 100px;
+        color: #d2dce7;
+        margin-top: 13px;
+        margin-bottom: 10px;
+        line-height: 1.4
+    }
+    .vertical {
+        padding: 20px 10px; /* Top/bottom: 20px, Left/Right: 10px */
+        margin: 0; /* Remove any margin */
+    }
+
+    .main-header-content {
+        max-width: 100%; /* Allow content to take full width */
+        padding: 0; /* Remove extra padding */
+        margin: 0 auto; /* Center align horizontally */
+        text-align: center; /* Keep the text aligned */
+    }
+
+    .section-titles {
+        margin-left: 118px; 
+        margin-top: 3%; 
+        text-align: left;
+        font-style: normal;
+    }
+
+    .main-text {
+        text-align: left;
+        font-size: 16px; /* Adjust the size as needed */
+        /*margin: 0 0 1.75em 0;*/
+        margin: 118px;
+        margin-top: 13px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+        font-style: normal;
+    }
+    .sub-titles {
+        margin-left: 140px; 
+        margin-top: 2%; 
+        text-align: left;
+        font-style: normal;
+    }
+
+    .main-sub-text {
+        text-align: left;
+        font-size: 16px; /* Adjust the size as needed */
+        /*margin: 0 0 1.75em 0;*/
+        margin: 140px;
+        margin-top: 8px;
+        margin-bottom: 5px;
+        line-height: 1.4;
+        font-style: normal;
+    }
+    .story-ul {
+    list-style-type: square; /* Use square bullets instead of default */
+    margin-left: 160px;
+    margin-right: 160px;
+
+    }
+
+    .graph-photos {
+        display: block; /* Make the image a block element */
+        margin: 0 auto;
+    }
+
+    .iframe-wrapper {
+        display: flex;           /* Use Flexbox for centering */
+        justify-content: center; /* Horizontally center */
+        align-items: center;     /* Vertically center (if needed) */
+        width: 100%;             /* Full width of the parent container */
+        /*height: auto;            /* Adjust based on content */
+        margin: 60px auto;       /* Center on the page and add spacing */
+    }
+    
+    .iframe-plot {
+        max-width: 100%;         /* Responsive width */
+        /*height: 300px;           /* Adjust the iframe height */
+        border: 1px solid #ccc;  /* Optional border for clarity */
+        border-radius: 5px;      /* Optional rounded corners */
+        display: block;          /* Ensure it's treated as a block-level element */
+        margin: 100px;
+        
+        margin: auto;
+    }
+    
+    .container {
+        display: flex;
+        align-items: left; /* Vertically align text and image */
+        justify-content: space-between; /* Space out text and image */
+        gap: 20px; /* Add spacing between text and image */
+        
+        margin-top: 15px;
+        margin-left: 140px;
+        margin-right: 140px;
+        margin-bottom: 0px;
+
+    }
+    
+    .text-section {
+        flex: 1; /* Allow the text section to take up one portion of the space */
+        text-align: left;
+        font-size: 16px; /* Adjust the size as needed */
+        
+        line-height: 1.4;
+        font-style: normal;
+    }
+    
+    .image-section {
+        flex: 1; /* Allow the image section to take up one portion of the space */
+        text-align: center; /* Align the image to the right */
+    }
+    
+    .image-section img {
+        max-width: 100%; /* Ensure the image is responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+    .contained-ul {
+    list-style-type: square; /* Use square bullets instead of default */
+    margin-left: 20px;
+    }
+        
+</style>
+
+<!-- The big featured header  -->
+<header class="main-header "
+        style="background-image: url(/ada-2024-project-alpacadreamagency/assets/images/film-reel-1.jpg) ">
+    <nav class="main-nav overlay clearfix">
+        
+        <a class="blog-logo" href="/ada-2024-project-alpacadreamagency/about"><img src="/ada-2024-project-alpacadreamagency/assets/images/Corcodile.png" alt="Blog Logo" /></a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Prologue</h1>
+            <h2 class="page-description">Setting the scene...</h2>
+            
+            <p class="small-text"><em>It’s a Saturday night and you want to watch a movie.
+                 You remember a friend of yours recommending a musical on Disney+, so you think,
+                  why not? and start the search for it. Once you find it, its genres catch your eye: 
+                  Biography and History. You grimace a little and consider going back to search for something else. 
+                  As much as you enjoy musicals, historical fiction is really not your cup of tea. How good can a historical, 
+                biographical, musical be anyway? Your friend told you to watch it though, so you have no choice.</em></p>
+    
+            <p class="small-text"><em>And so, you watch the musical. To your surprise,
+                 it’s good. The movie made you smile, it made you laugh, it made you 
+                 want to sing along even if you knew none of the words. It was not all 
+                 sunshine and rainbows though. There was drama, there was conflict, there 
+                 was pain. Three quarters through the movie, you were crying your eyes out.</em> </p>
+                
+            <p class="small-text"><em>As the credits roll, you think back to the genres. 
+                Biography, History. Are they correct? Grudgingly, you have to admit they are, 
+                but still, you feel like they were not enough. With those genres, were it not for
+                 your friend, you would have never given this movie a try. Whoever labeled this movie
+                  should’ve done better. </em> </p>
+                
+            <p class="small-text"><em>When you go to sleep that night, you start to wonder… 
+                what makes a movie belong to a particular genre? What movie characteristics 
+                define their genres? And as an ADA student, you really can’t help it, you really want
+                 to know… is it possible to automatically assign genres to movies using their data?</em></p>
+                
+            <p class="small-text"><em>You close your eyes… and dream.</p>
+              
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
+
+<!-- The main content area on the homepage -->
+<main id="content" class="content" role="main">
+    
+    <h1 id="main-title" style="margin-inline: 10%; text-align: center;font-style: normal; text-transform: uppercase;">Predicting Genre From Data - A Movie Classification Project</h1>
+    
+                <h4 style=" text-align: center;font-style: normal;">~Discover the Hidden Secrets Behind Movie Genres~</h4>
+    <hr style="width: 50%; margin: auto; border: 1px solid #000;">
+    
+            <h4 id="intro" class="section-titles">Why Dive Into the Genre Jungle When We Could Just Watch Netflix? <br> <em>~A Generic Introduction~</em></h4> 
+    
+                        <p class="main-text">Movies are more than just entertainment — they are windows into 
+                            stories that inspire, thrill, and move us. With over a century of cinema and thousands 
+                            of movies spanning genres like drama, action, romance, horror, and sci-fi, there’s always
+                            a perfect film waiting to match your mood. But here’s the catch: how do you choose?</p>
+                        <p class="main-text">When scrolling through endless options on Netflix or Disney+, 
+                            the genre is often our guiding light. It tells us what to expect — a nail-biting 
+                            thriller, a heartwarming comedy, or a mind-bending sci-fi adventure. 
+                            But how accurate are these genres? How often do they represent the true essence of the movie?</p>
+                        <p class="main-text">This question sparked our curiosity. What if movies could 
+                            speak for themselves? What if their data — runtime, actors,
+                            themes, even emotions — could automatically reveal the genres they truly belong to?</p>
+                        <p class="main-text">In this project, we dive into the fascinating world of movie genres to 
+                            uncover the characteristics that define them. From analyzing hidden patterns in data to 
+                            testing machine learning models, we set out to answer one big question:
+                            <b>Can we predict a movie’s genre using only its data?</b></p>
+                        <p class="main-text">Ready to see movies in a new light? Let’s begin!</p>
+                                    
+
+            <h3 id="data" class="section-titles">Data <em>~In Action~</em></h3>
+                    <p class="main-text">To explore what truly defines a movie genre, we needed data — and lots of it. 
+                        The backbone of our 
+                        analysis is two extensive datasets, each offering a unique glimpse into the world of cinema:</p>
+
+                    <h5 class="sub-titles">1. The <s>MCU</s> CMU Movie Summary Corpus</h5>
+
+                        <div class="container">
+                            <div class="text-section">
+                                <p>This dataset, sourced from movie summaries on Wikipedia as of 2012, 
+                                    provides detailed information for over 42,000 movies. It includes key attributes such 
+                                    as movie titles, release dates, genres, and plot summaries, giving us a textual and structural 
+                                    foundation to analyze what movies are made of. Beyond movies themselves, characters are at the 
+                                    heart of every story. This dataset also dives deep into the personas of movie characters, covering 
+                                    actor details like age, gender, and character roles. It also includes character-related data such 
+                                    as stereotypes, 
+                                    age groups, and sentiment, providing insights into how characters shape and reflect genres.</p>
+                            </div>
+                            <div class="image-section">
+                                <img style="height: 260px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/ada/datasets-assemble-v2.JPG" alt="Datasets assemble!">
+                            </div>
+                        </div>
+
+                    <h5 class="sub-titles">2. The TMDb Dataset</h5>
+                        <p class="main-sub-text">To enrich our exploration, we incorporated the publicly available 
+                            dataset TMDb (The Movie Database). This dataset adds layers of information such as runtime,
+                            budgets, revenues, 
+                            popularity, and votes, helping us understand how movie characteristics vary across genres.</p>
+                        
+                        
+                    <p class="main-text"> By combining these datasets, we ended up with a rich collection of movie 
+                        and character data, spanning decades of cinematic history — from the early 20th century to 2016. 
+                        Altogether, this means analyzing tens of thousands of movies and characters, each contributing 
+                        to the intricate puzzle of genre classification.
+                    </p>
+                
+                    <p class="main-text">With this treasure trove of information, we’re ready to uncover the patterns and relationships that define movie genres. 
+                        From plot lengths to actor demographics, our data helps movies speak for themselves.</p>
+
+
+                <p class="main-text"><b>Now, with the help of our datasets, we can start by looking at some general facts about movies.</b></p>
+    
+            <h5 class="sub-titles">Movies Through the Decades: A Cinematic Boom</h5>
+
+                    <div class="container">
+                        <div class="text-section">
+                            <p>As we can see, movies have become a significant part of our lives and a cornerstone of entertainment.
+                                <br><br>In the early years (before the 1920s), movie production was sparse as the film industry was still in its infancy. As technology advanced and filmmaking became more accessible, we see a steady rise in the number of films produced, particularly from the 1930s onward.
+                                <br><br>Interestingly, there are noticeable dips around the 1940s, likely due to World War II, which disrupted global film production. However, the industry rebounded post-war, continuing to grow steadily through the mid-20th century.
+                                
+                            </p>
+                        </div>
+                        <div class="image-section">
+                            <img src="/ada-2024-project-alpacadreamagency/assets/images/graphs/movies-per-year.png" alt="Movies Per Year Plot">
+                        </div>
+                    </div>
+
+    
+                    <p class="main-sub-text">The real explosion in movie production occurs from the 1980s onwards, reaching its peak in the early 2000s. This surge can be attributed to:
+                        <ul class="story-ul">
+                            <li>Advances in technology and filmmaking techniques.</li>
+                            <li>The rise of global film markets and independent cinema.</li>
+                            <li>The accessibility of digital filmmaking, which drastically lowered production costs.</li>
+                        </ul>
+                    </p>
+                    <p class="main-sub-text">Now, let’s dive into the box office battle, where we explore how the data behaves across genres to give us a clear overview of 
+                        the fascinating relationships between budgets, revenues, and ratings.</p>
+
+
+            <h5 class="sub-titles">Box Office Battles: Ratings, Revenues, and the Rise of the Blockbuster</h5>
+                    <p class="main-sub-text">This following graph is like peeking behind the curtain of the movie 
+                        industry, where romance (blue) and horror (red) duke it out on the battlefield of budgets, revenues, and ratings. Nestled in our "overview of the data" section, this visual spectacle showcases how these genres have entirely 
+                        different strategies for stealing the audience's hearts—or scaring the popcorn out of their hands.</p>
+                    
+                        <div class="iframe-container">
+                            <iframe class="iframe-plot" src="/ada-2024-project-alpacadreamagency/data_analysis/plots/bubble_plot.html" 
+                                    width="80%" 
+                                    height="400px" 
+                                    frameborder="0"></iframe>
+                        </div>
+
+
+                    <p class="main-sub-text">Romance and horror couldn't be more different when it comes to budgets, 
+                        revenues, and how ratings influence their success. Romance tends to go big, with massive 
+                        budgets occasionally leading to blockbuster revenues (cue the giant blue circles). Horror, 
+                        however, plays it smart, thriving on smaller budgets and consistently turning a profit—even
+                        with lower ratings. While romance needs big bucks and critical
+                        acclaim to shine, horror proves you don’t need a big budget to make big screams (and cash).</p>
+                    <p class="main-sub-text">The size of the circles tells us how audience ratings impact revenues. Romance 
+                        films with higher ratings (those big, bold blue circles) tend to dominate the revenue charts, showing 
+                        that critical and audience appreciation is key to their success. In contrast, horror movies are more 
+                        forgiving of lower ratings. Even small red circles appear in the higher revenue zones, proving
+                        that horror fans are loyal and willing to turn up for a good scare, even if the critics don’t approve.</p>
+                    <p class="main-sub-text">The graph makes one thing clear: genre is everything. It shapes not just the type 
+                        of stories told, but also how they’re made, marketed, and received. Whether you’re swooning over love 
+                        stories or screaming through horror flicks, genre 
+                        isn’t just a label—it’s a whole strategy. Without it, the movie industry would be… well, a scary mess.</p>
+
+
+
+
+
+    <h3 id="stats" class="section-titles">The Statistics of Storytelling <em>~Science or Fiction?~</em></h3>
+
+            <p class="main-text">Like it or not, statistics very much fall into the non-fiction category, so let's take a brief 
+                look at this short documentary that will introduce us to two important characters of our journey. </p>
+
+
+            <h5 class="sub-titles">Pearson Correlation: Linear Relationships</h5>
+
+                    <div class="container">
+                        <div class="text-section">
+                            <p>The Pearson correlation measures the strength and direction of the 
+                                linear relationship between two variables. It answers the question: 
+                                <em>When one variable increases (or decreases), 
+                                    does the other do the same, and in a predictable way?</em>
+                            </p>
+                            <ul class="contained-ul">
+                                <li>Scale: The Pearson correlation coefficient ranges from -1 to 1.</li>
+                                <ul>
+                                    <li>1: Perfect positive linear relationship (as one goes up, the other does too)</li>
+                                    <li>0: No linear relationship.</li>
+                                    <li>-1: Perfect negative linear relationship (as one goes up, the other goes down).</li>
+
+                                </ul>
+                                <li>When to Use It: When your data is normally distributed and you expect the relationship between variables to be linear.</li>
+                            </ul>
+
+                        </div>
+                        <div class="image-section" >
+                            <img style="height: 350px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/ada/pearson.png" alt="Pearson">
+                        </div>
+                    </div>
+
+
+
+            <h5 class="sub-titles">Spearman Correlation: Ranks and Non-Linear Relationships</h5>
+
+
+                    <div class="container">
+                        <div class="image-section" >
+                            <img style="height: 300px;width: auto; margin-top: 10px;" src="/ada-2024-project-alpacadreamagency/assets/images/ada/spearman.jpg" alt="Spearman">
+                        </div>
+
+                        <div class="text-section">
+                            <p>The Spearman correlation, on the other hand, is all about ranks. It measures how well the
+                                relationship between two variables can be described by a 
+                                monotonic function (i.e., consistently increasing or decreasing, but not necessarily in a straight line).
+                            </p>
+                            <ul class="contained-ul">
+                                <li>Scale: Like Pearson, Spearman ranges from -1 to 1.</li>
+                                <ul>
+                                    <li>1: Perfectly monotonic increasing relationship (as one variable’s rank increases, so does the other’s).</li>
+                                    <li>0: No monotonic relationship.</li>
+                                    <li>-1: Perfectly monotonic decreasing relationship.</li>
+
+                                </ul>
+                                <li>When to Use It: When your data is not linear or when you’re dealing with ordinal data (e.g., ranks or categories).</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+    <h3 id="genre" class="section-titles">What Makes a Genre? <em>~The Mystery to Investigate~</em></h3> 
+            <p class="main-text">Genres are the backbone of cinema. They are the categories that shape our
+                expectations and guide us to the stories we love. Whether it’s the thrill of an action-packed chase, 
+                the tears of a heartfelt drama, or the 
+                laughs of a lighthearted comedy, genres provide the lens through which we view and connect with movies.</p>
+            
+
+            <h5 class="sub-titles">A Slice of the Genre Pie 🍰</h5>
+
+                <div class="iframe-container">
+                    <iframe class="iframe-plot" src="/ada-2024-project-alpacadreamagency/data_analysis/plots/num_movies.html" 
+                            width="80%" 
+                            height="400px" 
+                            frameborder="0"></iframe>
+                </div>
+
+    
+
+                    <p class="main-sub-text">To start off, this delightful pie chart gives us a bird’s-eye 
+                        view of the distribution of movies across genres. Here’s what stands out:
+                    
+                        <ul class="story-ul">
+                            <li>Drama takes center stage with the largest slice of the pie at 17.7%. No surprise here — drama has always been a storytelling staple, 
+                                reflecting the depth and complexity of human experiences.</li>
+                            <li>Comedy (11.4%) follows, reminding us that everyone loves a good laugh.</li>
+                            <li>Action/Adventure (7.15%) and Romance (6.25%) keep us entertained and swooning, proving that audiences love excitement and love stories alike.</li>
+                            <li>The smaller slices, like World Cinema and Short Films, highlight niche categories that cater to specialized tastes and artistic expressions.</li>
+                        </ul>
+                    </p>
+                    
+
+
+            <h5 class="sub-titles">Connections Across the Movie-Verse</h5>
+
+                    <div class="iframe-container">
+                        <iframe class="iframe-plot" src="/ada-2024-project-alpacadreamagency/data_analysis/plots/chord_plot.html" 
+                                width="80%" 
+                                height="400px" 
+                                frameborder="0"></iframe>
+                    </div>
+
+
+                    <p class="main-sub-text">If genres are the personality traits of movies, 
+                        this graph is like watching them interact at a party—and oh boy, some
+                        genres are really good friends! This vibrant chord diagram gives us a visual map 
+                        of how genres relate to one another, revealing the 
+                        bridges that connect them. The thicker the bridge, the stronger the connection between two genres.</p>
+                    
+                    <p class="main-sub-text"><b>What can we see?</b>
+                        Genres like Action and Adventure are practically inseparable, with their strong connection 
+                        reflecting their shared characteristics of excitement, fast-paced storytelling, and adrenaline-filled 
+                        plots. Similarly, Drama is like the social butterfly of genres, bridging gaps with Romance, Thriller, 
+                        and even Crime. It makes 
+                        sense—drama is everywhere, whether it’s a tragic love story, a suspenseful heist, or a courtroom showdown.</p>
+                    <p class="main-sub-text">Surprising friendships pop up too. Who would’ve guessed that Music/Dance 
+                        shares a notable bond with genres like Romance? Turns out, nothing says love like a duet or a 
+                        waltz under the moonlight. And then there’s Horror, often 
+                        connecting with Thriller and Mystery—a trio of spine-tingling tales that play on our deepest fears.</p>
+
+                    <p class="main-sub-text"><b>Why does this matter?</b>
+                        This graph helps us understand the fabric of storytelling. It highlights how genres aren’t 
+                        isolated silos—they’re interconnected, borrowing and blending elements from one another. These 
+                        connections not only make 
+                        genre classification more complex but also show why some movies resonate with broader audiences.</p>
+
+
+
+            <h5 class="sub-titles">Romance vs. Horror: A Love-Hate Relationship (with Numbers)</h5>
+
+                        <div class="iframe-container">
+                            <iframe class="iframe-plot" src="/ada-2024-project-alpacadreamagency/data_analysis/plots/variable_heatmap.html" 
+                                    width="80%" 
+                                    height="400px" 
+                                    frameborder="0"></iframe>
+                        </div>
+
+
+                    <p class="main-sub-text">When you pit romance against horror, what do you get? A mathematical tug-of-war between love and fear, captured perfectly in these heatmaps. But here’s the twist: the correlations you see here aren’t standalone—they’re romance minus horror. That’s right, it’s a love story where the data takes the spotlight.
+                        <br><br>The bright yellow spots reveal where romance dominates: longer plots and a preference for actors aged 20-40. Clearly, romance movies take their sweet time setting up the perfect meet-cute, while horror is more about “Who’s going to die next?” in as few words as possible.
+                        <br><br>But horror doesn’t go down without a fight. Darker patches in the heatmap show where horror’s spooky vibes pull ahead—higher correlations with shorter plots, character counts, and actors in younger or older age ranges. It seems horror doesn’t discriminate; anyone from teens to seasoned veterans can fall victim to its chilling narratives.
+                        <br><br>One fascinating takeaway? Revenue and vote averages show lower correlations for romance than horror. Apparently, horror knows how to cash in on its scares, while romance, despite its heartfelt tales, isn’t always about the box-office glory. And, for all its drama, romance might be losing ground in the high-stakes popularity game.
+                        <br><br>In the end, this heatmap reminds us that genres don’t just tell stories—they tell us about the people they target and the emotions they evoke. Romance and horror may be polar opposites, but their data-driven rivalry is a match made in statistical heaven… or maybe statistical hell, depending on your perspective!
+                        </p>
+
+
+        <h4 class="section-titles">How Actors Define Genre <em>~A Look Behind The Scenes~</em></h4>
+            <p class="main-text">What’s a movie without its actors? They’re the faces we laugh with, cry over, 
+                and sometimes yell at for making bad decisions (we’re looking at you, horror movies). But have you 
+                ever wondered if the type of actors in a movie — their age, their experience — tells us something about 
+                its genre? Maybe action movies lean toward younger, energetic stars, while dramas prefer seasoned veterans 
+                with emotional depth. Well, wonder no more! Let’s 
+                take a closer look at the fascinating relationship between who’s in a movie and what kind of movie it is.</p>
+            
+
+            <h5 class="sub-titles">Stacked Bars of Genre Glory</h5>
+
+                <div class="iframe-container">
+                    <iframe class="iframe-plot" src="/ada-2024-project-alpacadreamagency/data_analysis/plots/age_genre_bar.html" 
+                            width="80%" 
+                            height="400px" 
+                            frameborder="0"></iframe>
+                </div>
+
+
+
+                    <p class="main-sub-text">The stacked bar chart takes the exploration to the next level. Here, 
+                        you can compare how different genres 
+                    allocate their casting across age groups. And yes, it updates dynamically based on your selections!</p>
+                        <ul class="story-ul">
+                            <li>If you select action and thrillers, you’ll see a strong focus on actors aged 20-40, the age group of choice for adrenaline-fueled roles.</li>
+                            <li>Choose comedies and family films, and you’ll notice the 0-20 group taking a bigger chunk — these genres thrive on youthful energy and humor.</li>
+                            <li>Interested in biographical dramas? The graph will highlight a larger share of 40-60+ actors, reflecting the life stories these genres often depict.</li>
+                        </ul>
+                    <p class="main-sub-text">The stacked bar chart takes the exploration to the next level. Here, 
+                        By comparing genres side by side, you can see how the casting shifts between them. It’s a fun way to explore how each genre tailors its actors to fit its narrative style.
+                        <br><br> Sure, genres dictate the ages of actors—because apparently, you can’t 
+                        have a family film without a squad of pre-teens or a historical drama without someone 
+                        looking wise and weathered. But age isn’t the only casting curveball genres throw. The gender 
+                        balance in movies can be just as telling! Whether it’s action films that scream, “Bring me all the
+                        tough guys!” or romantic comedies assembling equal 
+                        parts swoon-worthy men and quirky women, the genre has a lot to say about who gets the spotlight.
+                    </p>
+
+                    <p class="main-sub-text">
+                        <em>Do you see this plot? No? It's up to you to click the buttons and play around to see the plots!</em>
+                    </p>
+                    
+                    <div class="iframe-container">
+                        <iframe class="iframe-plot" src="/ada-2024-project-alpacadreamagency/data_analysis/plots/gender_distr.html" 
+                                width="80%" 
+                                height="400px" 
+                                frameborder="0"></iframe>
+                    </div>
+
+                    <p class="main-sub-text">It seems like male actors are throwing a party and forgot to 
+                        send the invites to their female counterparts. In action-packed genres like War/Combat, 
+                        Political, and Action/Adventure, men are dominating the stage like it’s a testosterone-fueled 
+                        festival. Meanwhile, women in genres like Horror, Holiday Films, and Romance seem to be stuck 
+                        playing “Where’s Waldo,” with their numbers as tiny as the budget for a low-budget indie flick. 
+                        However, there are glimmers of hope—genres like Friendships, Family & Personal Relationships and
+                         Indie seem to be more gender-inclusive, proving that sometimes, all it takes is a good script 
+                         (or maybe just better casting directors). So while the industry 
+                        may still have a ways to go, at least in certain genres, the plot is thickening in favor of diversity.
+                    </p>
+
+
+    
+        <h4 class="section-titles">What Stories Tell Us About Genres <em>~The Plots and Twists~</em></h4>
+            <p class="main-text">Movies are more than just visuals; their plots shape how we experience them and, ultimately, the genres they belong to. The words used in movie summaries give us a sneak peek into their core themes. Whether it’s a suspenseful “escape” in a thriller or a heartfelt “love” in a romantic classic, the vocabulary of a movie often hints at the genre. So, we decided to dive in and explore: what do movie plots reveal about genres?
+
+            <br><br>To start, we took a closer look by visualizing the most frequently used words in the plots of different genres.
+            </p>
+        
+
+            <h5 class="sub-titles">Close Neighbors: Horror vs. Thriller</h5>
+
+                    <p class="main-sub-text">Let’s start with genres that are close cousins — horror and thriller. 
+                        The word clouds show a lot of overlap in terms like “killed”, “house”, and “father”. It seems 
+                        both genres love a good family-related scare or a mystery involving death.
+                    </p>
+                    <p class="main-sub-text">The difference? Horror leans into more unsettling words like 
+                        “creature” or “attack,” while thrillers focus more on action-oriented words like “escape” 
+                        and “discover.” 
+                        It’s the difference between outright terrifying you and keeping you on the edge of your seat.
+                    </p>
+   
+                    <div class="container">
+                        <div class="image-section">
+                            <img src="/ada-2024-project-alpacadreamagency/assets/images/graphs/words_cloud/horror.png" alt="Movies Per Year Plot">
+                        </div>
+
+                        <div class="image-section">
+                            <img src="/ada-2024-project-alpacadreamagency/assets/images/graphs/words_cloud/thriller.png" alt="Movies Per Year Plot">
+                        </div>
+
+                    </div>
+
+            <h5 class="sub-titles">Worlds Apart: Action/Adventure vs. Old-Fashioned/Classical Style</h5>
+
+                    <p class="main-sub-text">Now, let’s compare genres that couldn’t be more different. 
+                        Action/Adventure and Old-Fashioned/Classical Style might as well come from different universes.
+                    
+                        <ul class="story-ul">
+                            <li>Action/Adventure thrives on movement and danger — words like “escape”, 
+                                “killed”, and “fight” dominate the cloud. These movies scream adrenaline
+                                 and urgency.
+                            </li>
+                            <li>Meanwhile, Old-Fashioned/Classical Style slows things down with words 
+                                like “man”, “wife”, and “life”. It’s all about relationships, reflection, 
+                                and a touch of nostalgia.
+                            </li>
+                        </ul>
+                    </p>
+                    <p class="main-sub-text">This contrast shows how genres cater to 
+                        completely different storytelling styles and emotional experiences.
+                    </p>
+
+                    <div class="container">
+                        <div class="image-section">
+                            <img src="/ada-2024-project-alpacadreamagency/assets/images/graphs/words_cloud/actionadventure.png" alt="Movies Per Year Plot">
+                        </div>
+
+                        <div class="image-section">
+                            <img src="/ada-2024-project-alpacadreamagency/assets/images/graphs/words_cloud/classical.png" alt="Movies Per Year Plot">
+                        </div>
+
+                    </div>
+
+
+
+            <h5 class="sub-titles">Digging Deeper: Searching for Specific Themes</h5>
+
+                    <p class="main-sub-text">We didn’t stop there. We went hunting for specific themes 
+                        across genres using keywords from movie 
+                        summaries. For example:
+
+                        <ul class="story-ul">
+                            <li>The following pie chart reveals how frequently specific terms 
+                                (like "love" or "death") show up across different genres.
+                            </li>
+                            <li>Unsurprisingly, some words are heavily skewed toward certain genres, with 
+                                “love” dominating romance and “death” creeping its way into horror and drama.
+                            </li>
+                        </ul>
+                    </p>
+                    <p class="main-sub-text">This type of analysis shows us how genres are built on recurring themes and language, 
+                        offering a deeper understanding of what audiences expect from each.
+                    </p>
+                    <div class="iframe-container">
+                        <iframe class="iframe-plot" src="/ada-2024-project-alpacadreamagency/data_analysis/plots/saved_plot.html" 
+                                width="80%" 
+                                height="400px" 
+                                frameborder="0"></iframe>
+                    </div>
+                    
+
+
+            <h5 class="sub-titles">Mood Swing Cinema: Which Genres Make You Cry, Cheer, or Scream?</h5>
+                    <div class="iframe-container">
+                        <iframe class="iframe-plot" src="/ada-2024-project-alpacadreamagency/data_analysis/plots/sentiment_genre.html" 
+                                width="80%" 
+                                height="400px" 
+                                frameborder="0"></iframe>
+                    </div>
+                    <p class="main-sub-text">This graph dives into the emotional tones of movie plots, measuring 
+                        whether they lean positive, negative, 
+                        or somewhere in between. Here are some key takeaways from the sentiment analysis across genres:
+
+                        <ul class="story-ul">
+                            <li>Heartwarming or Tragic?</li>
+                            <ul>
+                                <li>Genres like Romance, Family/Children’s movies, 
+                                    and Music/Dance tend to skew more positive. 
+                                    Their stories are often uplifting, heartwarming, and filled with themes of love, joy, and resolution.
+                                </li>
+                                <li>On the flip side, Horror clearly leans heavily into negativity, 
+                                    with the lowest sentiment scores of all genres — fitting, since fear, 
+                                    death, and suspense rarely make for feel-good vibes.
+                                </li>
+
+                            </ul>
+                            <li>A Balanced Approach</li>
+                            <ul>
+                                <li>Genres such as Drama, Mystery/Suspense, and Thriller strike a
+                                     balance between positive and negative tones. These genres explore a 
+                                     range of emotions, from joy and hope to conflict and despair, making them feel more nuanced.
+                                </li>
+                            </ul>
+                            <li>Unexpected Surprises</li>
+                            <ul>
+                                <li>Interestingly, Holiday Films show some surprising spikes in negativity. Could 
+                                    this hint at the emotional conflict or family drama often embedded in these otherwise festive stories?
+                                </li>
+                                <li>Action/Adventure maintains a positive edge, suggesting that while the stakes are high, the triumph of 
+                                    good over evil tends to leave audiences feeling satisfied.
+                                </li>
+                            </ul>
+                            <li>Cultural Nuances</li>
+                            <ul>
+                                <li>The graph also reveals how genres like Asian Movies or Religious 
+                                    Films bring unique tones, influenced by storytelling traditions and 
+                                    cultural themes that differ from Western cinema.
+                                </li>
+                            </ul>
+                        </ul>
+                    </p>
+    
+            <h5 class="sub-titles">Cinema’s Emotional Rollercoaster: Themes Meet Feels</h5>
+                    <p class="main-sub-text">Movies aren’t just about explosions or dramatic gazes—they’re emotional 
+                        powerhouses fueled by themes. From the warm fuzzies of love to the soul-crushing doom of tragedy, 
+                        this Pearson 
+                        correlation chart spills the tea on how themes dictate our emotional highs and lows. Let’s break it down!
+                    </p>
+                    <p class="main-sub-text">No shocker here—happiness is riding high on the positivity train, while
+                         death and tragedy are dragging us into the emotional abyss. Love keeps it balanced, sprinkling 
+                         joy with a dash of drama, because life’s complicated, right? Meanwhile, fear and revenge lurk in
+                          the shadows, perfect companions for horror and thrillers. Themes like family and hope try their
+                           best to keep things wholesome, while justice and survival 
+                        walk the fine line between triumph and despair. It’s a plot twist of emotions—just the way we like it!
+                    </p>
+
+                    <div class="iframe-container">
+                        <iframe class="iframe-plot" src="/ada-2024-project-alpacadreamagency/data_analysis/plots/sentiment_theme.html" 
+                                width="60%" 
+                                height="500px" 
+                                frameborder="0"></iframe>
+                    </div>
+                    <p class="main-sub-text">Comparing Spearman and Pearson is like watching two critics agree on the 
+                        big stuff but bicker over the details. Both call happiness the MVP of good vibes and death the 
+                        ultimate buzzkill, so no surprises there. Spearman, the rank-obsessed cousin, focuses on consistent 
+                        mood trends—like how fear reliably tanks sentiment. Meanwhile, Pearson, the linear thinker, cares about 
+                        exact proportional relationships, making themes like justice and family seem less impactful. 
+                        Bottom line: they both agree on the plot twist (death = bad vibes), 
+                        but their perspectives make them a dynamic duo for dissecting cinema’s emotional themes!
+                    </p>
+                    <p class="main-sub-text">While Spearman and Pearson bickered over correlations and sentimental nuances, 
+                        it’s time to shift gears and dive into something a bit more predictive. If themes and sentiments reveal 
+                        the soul of a story, can we use that knowledge to peek into the future? Enter the movie genre predictor
+                         model, where algorithms swap their popcorn for data-crunching to determine if they can guess a movie's
+                          genre based on its plot. Let’s see if machines can steal the show!
+
+                    </p>
+    
+    
+    <h3 id="models" class="section-titles">Movie Genre Predictor Model<em> ~Adventures in Machine Learning~</em></h3>
+
+            <p class="main-text">Why did we create a model? Well, because sometimes movie genres feel like they were chosen during a particularly confusing game of darts. "Is it a comedy? A drama? Both? Neither?" Genres can often be vague, misleading, or downright baffling. So, we decided to do better. 
+                Enter our movie genre predictor model, where data speaks louder than human guesswork.</p>
+
+            <p class="main-text"><b>Why so many models?</b>
+                Since we do not chill with our objective, we are not going to use just a model. Why? 
+                Because we don’t know which one will work best (we’re not mind readers, sadly). 
+                Different models are good at different tasks, so we threw six contenders into the ring: 
+                four classic algorithms and two neural networks. Think of it as our own little algorithm Hunger Games.
+            </p>
+
+            <h5 class="sub-titles">The Competitors:</h5>
+            <h5 class="sub-titles">Decision Trees: Sherlock Holmes in Data Form</h5>
+                <p class="main-sub-text">Imagine a flowchart where every question is a decision point. 
+                    A decision tree looks at your movie data — 
+                    say, runtime, budget, or number of actors — and splits it into "branches" based on yes/no questions.
+                </p>
+                <ul class="story-ul">
+                    <li>Example: Is the runtime over 120 minutes? Yes? Then maybe it’s an epic or historical drama. No? Maybe it’s a comedy or horror.
+                    </li>
+                </ul>
+                <p class="main-sub-text">At the "leaves" of the tree (the end points), the algorithm decides whether your movie belongs to a specific genre or not one at a time: We are going to have one tree per genre, each ruled by different split decisions. Decision trees are straightforward, intuitive, and great for explaining why a movie is classified the way it is — like Sherlock Holmes explaining his deductions.
+                </p>
+                <div class="container">
+                    <div class="image-section">
+                <img style="height: 260px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/ada/decission.jpeg" alt="Decission trees">
+            </div>
+        </div>
+
+            <h5 class="sub-titles">Random Forest: A Party of Trees</h5>
+                <p class="main-sub-text">A single tree is good, but sometimes it can overthink or overfit and look, being a lonly tree is sad, isn’t it?. Random forests solve this by creating lots of decision trees, each trained on slightly different subsets of the data using techniques like bootstrap. For every genre we have a forest: Every tree votes, and the majority vote decides the fate of the movies (belongs or not belongs to that genre…).
+                </p>
+                <ul class="story-ul">
+                    <li>Why is this cool? If one tree says "yes" and the others say "no," the forest can overrule the rogue tree.                    </li>
+                    <li>Think of it as a jury trial for your movie: each tree is a juror, and together they make the final decision.                    </li>
+                </ul>
+                <div class="container">
+                    <div class="image-section">
+                <img style="height: 260px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/ada/Random_forest.jpeg" alt="Random Forest">
+            </div>
+        </div>
+                <p class="main-sub-text">Random forests add robustness and reduce the risk of a single bad tree messing everything up.                </p>
+            
+            <h5 class="sub-titles">K-Nearest Neighbors (KNN): The Neighborhood Watch</h5>
+                <p class="main-sub-text">This model doesn’t assume much about the data. Instead, it lets the data speak for itself by comparing your movie to its "neighbors."
+                <br><br>Here's how it works:
+                </p>
+                <ul class="story-ul">
+                    <li>Imagine all the movies as points in a multi-dimensional hyperspace (where each feature like runtime or budget is a dimension).</li>
+                    <li>Your movie lands somewhere in this hyperspace, and KNN looks for the "k" closest movies — its neighbors.                   </li>
+                    <li>It checks what genres those neighbors belong to and assigns your movie the genre that’s most common among them.                   </li>
+                    <li>For each genre, it looks how many of those neighbours belong to it, then if more than half of them do, it decides that our new movie also does belong to that genre.                 </li>
+                </ul>
+                <div class="container">
+                    <div class="image-section">
+                <img style="height: 260px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/ada/knn.jpeg" alt="KNN">
+            </div>
+        </div>
+                <p class="main-sub-text">This method is simple but effective. For example, if your movie is surrounded by romantic comedies, chances are it’s one too. It’s like asking your closest friends, "What genre does this movie feel like to you?"                </p>
+            
+            
+            <h5 class="sub-titles">Regression: Drawing the Lines</h5>
+                <p class="main-sub-text">Regression isn’t just for numbers — it’s great for classification too. Here’s the idea:</p>
+                <ul class="story-ul">
+                    <li>Imagine you’re plotting movies on a graph with two axes (say, budget and runtime). Regression draws a line to separate the genres.Example: If the line is "below 2 times minutes and 0.5 times budget”, it’s a comedy; above that, it’s not.</li>
+                    <li>If we have more dimensions (more features), instead of a line we have a hyperplane that divides the hyperspace.</li>
+                </ul>
+                <div class="container">
+                    <div class="image-section">
+                <img style="height: 260px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/ada/regression.jpeg" alt="Regression">
+            </div>
+        </div>
+                <p class="main-sub-text">The regression model finds the best hyperplane for each genre. Then uses that as a rule to divide the hyperspace for each genre into two parts. One by one, if moves are on one side of a hyperplane or on the other, they belong or not to a genre.                </p>
+                <p class="main-sub-text">We use a regularized version of the standard regression, the Ridge Regression. It avoids overfitting,  making it a super-efficient classifier. It’s straightforward, though not as flashy as neural networks.                </p>
+            
+            <h5 class="sub-titles">Neural Networks: The Data Brainiac</h5>
+
+            <p class="main-sub-text">Neural networks are the overachievers of machine learning. Inspired by how our brains work, they process data through layers of "neurons." Each neuron takes in inputs (features like runtime, budget, or actor count), applies weights and biases, and passes the result to the next layer.</p>
+            <ul class="story-ul">
+                <li>Input Layer: This is where all your movie data comes in.</li>
+                <li>Hidden Layers: These are the magic zones where the network learns complex patterns. The more layers, the more abstract patterns it can detect.
+                </li>
+                <li>Output Layer: This gives probabilities of the movie to be for each genre. For example, "60% sure is comedy, 30% sure is drama, 10% sure is action..."</li>
+            </ul>
+
+            <p class="main-sub-text">Why is this powerful? Neural networks can find relationships in the data that simpler models might miss. For instance, they might learn that movies with "high budgets + long runtimes + low vote counts" are often historical dramas or something even more complex!. </p>
+            <p class="main-sub-text">However, they are not that easy to train, neither to interpret  — so we think of them like a black box of genius. We are going to use two kind of Neural Networks. One on a box-like shape and one with a U-like shape. </p>
+            <p class="main-sub-text">The fist one has more neurons and so is able to get more complex relations between the features. Meanwhile, the U-shape one “compresses” the data in fewer neurons so the information can be mixed. Then, both rescale the layers into the right size to make the predicition.</p>
+            <div class="container">
+                <div class="image-section">
+            <img style="height: 260px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/ada/neural_networks.jpeg" alt="Regression">
+        </div>
+    </div>
+            <h5 class="sub-titles">Why Use These Models Together?</h5>
+            <p class="main-sub-text">Each model has its strengths:</p>
+                <ul class="story-ul">
+                    <li>Decision trees are easy to interpret and explain.</li>
+                    <li>Random forests are robust and accurate.</li>
+                    <li>KNN is simple and doesn’t assume much about the data.</li>
+                    <li>Regression is efficient and works well for simpler patterns.</li>
+                    <li>Neural networks are powerful and capture complex relationships.</li>
+                    
+                </ul>
+            <p class="main-sub-text">By trying multiple models, we get a better sense of what works best for predicting genres. Plus, it’s fun to watch them compete!</p>
+
+            <h5 class="sub-titles">How Do We Compare Their Performance?</h5>
+            <p class="main-sub-text">The F1 Score is our referee. It balances precision (how many predictions are correct) and recall (how many relevant genres are identified). A high F1 score means the model is both accurate and comprehensive — perfect for genre classification.</p>
+
+            <h5 class="sub-titles">Fine tuning the models</h5>
+            <p class="main-sub-text">Default settings may be good, but sometimes we need to look closer to see which ones make our models work better.
+                <br><br>
+                The first thing we do is grid search of all the possible features of the models. One by one we try which option is better with the other settings fixed. At the end we choose the best combinations.
+                <br><br>
+                Also, we do a feature selection process where, sadly, we discard some before training the models. Why? Well, even if our big boy look big, they may get overwhelmed by all the data, overfit, or not focus on the important parts. We remove some data that may not be that useful and in  the process we make our models fasters (less computations, less time thinking).
+                <br><br>
+                At the end, we removed features like 'tragedy', 'betrayal', or 'fear’ from the plot topics. Why? As we saw before some of those share words that may be just useless for the classification. Also 'N/A actor count' is a feature that comes from the lack of information in the dataset. Like those, we end up finding more. It is sad but we have to say bye to them in order to achieve our goal.  :,(
+                </p>
+
+            <h5 class="sub-titles">Training the beast</h5>
+            <p class="main-sub-text">Training a standard model is rather simple: Get the data, get the model, feed the model the data :). Yet, not all is happiness, neural networks require more work. Usually we will have 
+                to feed them the data more than ones (have some epochs). Therefore, we can see how it evolves over time.
+                <br><br>
+            </p>
+            <div class="image-section">
+                            <img style="height: 260px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/models/Dense-shape.png" alt="Dense-shape">
+                        </div>
+                        <div class="image-section">
+                            <img style="height: 260px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/models/U-shape.png" alt="U-shape">
+                        </div>
+            <p class="main-sub-text">
+                Unlikely, our big boys are not very strong, and they had a bad time training :(. The lack of computational power does not allow us to make more validation on this models, and therefore train longer and with better settings. We leave this as a learning taks for the reader. So now, let's compare the performance of the models.
+                <br><br>
+            </p>
+                <div class="container">
+                        <div class="image-section">
+                            <img style="height: 260px;width: auto;" src="/ada-2024-project-alpacadreamagency/assets/images/models/score_comparation.png" alt="Score comparison">
+                        </div>
+                </div>
+    
+            <p class="main-sub-text">
+                As we can see, all of them have a high accuracy and decent f-score. We also tried doing the predictions at random and as we can see, our models are better! Now, let’s see some of the predictions. 
+                <br><br>
+
+
+                As we can see, all of them have a high accuracy and decent f-score. We also tried doing the predictions at random and so we proven that, our models are better! With this said, let’s see some of the predictions and give some use to the models.. 
+
+            </p>
+                        
+
+
+            <table border="1" style="margin-left: 140px;margin-right: 140px; width: 1000px;">
+                <thead>
+                  <tr>
+                    <th>Movie Name</th>
+                    <th>Original Genre</th>
+                    <th>Predicted Genre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Eraser</td>
+                    <td>Action/Adventure, Thriller</td>
+                    <td>Action/Adventure, Comedy, Crime, Drama, <br>Fantasy, Science Fiction, Thriller</td>
+                  </tr>
+                  <tr>
+                    <td>The Violin Player</td>
+                    <td>Drama</td>
+                    <td>Comedy, Drama, Romance</td>
+                  </tr>
+                  <tr>
+                    <td>Torn</td>
+                    <td>Drama</td>
+                    <td>Comedy, Drama, Romance</td>
+                  </tr>
+                  <tr>
+                    <td>Spirit</td>
+                    <td>Comedy, Drama</td>
+                    <td>Comedy, Drama, Romance, World cinema</td>
+                  </tr>
+                  <tr>
+                    <td>The White Flower</td>
+                    <td>Old-fashioned/classical style</td>
+                    <td>Comedy, Drama, Indie, Old-fashioned/classical style, <br>Romance, Short Film</td>
+                  </tr>
+                </tbody>
+              </table>
+            <p class="main-sub-text">
+            
+              BOOOM! Our ridgy guy get some of the genres right but then, add some other for you to be aware of any potential topics hahaha!
+              Also, if the you remember the some of most common genres were drama and comedy. Therefore, the model learned that if most the movie are classified as ‘drama’ or ‘comdey’, he gets less punishment from the training judge.
+              <table border="1" style="margin-left: 140px;margin-right: 140px; width: 1000px;">
+            </p>
+            <thead>
+                  <tr>
+                    <th>Movie Name</th>
+                    <th>Original Genre</th>
+                    <th>Predicted Genre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hey Ram</td>
+                    <td>Asian Movies, Drama, Historical, World cinema</td>
+                    <td>Drama</td>
+                  </tr>
+                  <tr>
+                    <td>Joshua Tree</td>
+                    <td>Action/Adventure, Crime, Indie, Thriller</td>
+                    <td>Drama</td>
+                  </tr>
+                  <tr>
+                    <td>Killer Party</td>
+                    <td>Horror</td>
+                    <td>Drama</td>
+                  </tr>
+                </tbody>
+              </table>
+
+        <p class="main-sub-text">
+        The evidence is here, our neural networks did not manage. More work will be done in future version! But wait, not everything is lost, at the end, not all is drama, our forest manage to get good guesses. 
+            </p>
+
+              <table border="1" style="margin-left: 140px;margin-right: 140px; width: 1000px;">
+                <thead>
+                  <tr>
+                    <th>Movie Name</th>
+                    <th>Original Genre</th>
+                    <th>Predicted Genre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hey Ram</td>
+                    <td>Asian Movies, Drama, Historical, World cinema</td>
+                    <td>Action/Adventure, Comedy, Crime, Drama, Romance, Thriller</td>
+                  </tr>
+                  <tr>
+                    <td>Money Mad</td>
+                    <td>Crime, Indie, Old-fashioned/classical style, Short Film</td>
+                    <td>Comedy, Drama, Indie, Old-fashioned/classical style, Short Film</td>
+                  </tr>
+                  <tr>
+                    <td>Savages</td>
+                    <td>Crime, Drama, Thriller</td>
+                    <td>Action/Adventure, Comedy, Crime, Drama, Thriller</td>
+                  </tr>
+                </tbody>
+              </table>
+
+        <p class="main-sub-text">
+            So, do you agree with what the models are saying (predicting)? ;) 
+        </p>
+
+            <h1 id="epilogue" class="page-title" style="color: #000; text-align: center;">Epilogue</h1>
+            
+            <p class="small-text" style="color: #000;text-align: center;"><em>The next day, after hours of searching, you have finally found it. The movie genre classifier is yours. </em></p>
+    
+            <p class="small-text" style="color: #000;text-align: center;"><em>Will it work?</em> </p>
+            <p class="small-text" style="color: #000;text-align: center;"><em>You smile… You can’t wait to find out!</em> </p>
+
+
+
+
+
+</main>
+
+
+        <!-- The tiny footer at the very bottom -->
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/ada-2024-project-alpacadreamagency/">ADA story</a> &copy; 2024</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyllt/jasper">Jasper</a></section>
+        </footer>
+    </div>
+    <!-- highlight.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- jQuery needs to come before `` so that jQuery can be used in code injection -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Ghost outputs important scripts and data with this tag -->
+    <!--  -->
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-69281367-1', 'auto');
+	    ga('send', 'pageview');
+
+     </script>
+    <!-- Fitvids makes video embeds responsive and awesome -->
+    <script type="text/javascript" src="/ada-2024-project-alpacadreamagency/assets/js/jquery.fitvids.js"></script>
+    <!-- The main JavaScript file for Casper -->
+    <script type="text/javascript" src="/ada-2024-project-alpacadreamagency/assets/js/index.js"></script>
+
+</body>
+</html>
