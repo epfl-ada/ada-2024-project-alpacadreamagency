@@ -496,7 +496,9 @@ current: home
                         parts swoon-worthy men and quirky women, the genre has a lot to say about who gets the spotlight.
                     </p>
 
-                    
+                    <p class="main-sub-text">
+                        <em>Do you see this plot? No? It's up to you to click the buttons and play around to see the plots!</em>
+                    </p>
                     
                     <div class="iframe-container">
                         <iframe class="iframe-plot" src="{{ site.baseurl }}data_analysis/plots/gender_distr.html" 
@@ -766,13 +768,16 @@ current: home
             <p class="main-sub-text">The fist one has more neurons and so is able to get more complex relations between the features. Meanwhile, the U-shape one “compresses” the data in fewer neurons so the information can be mixed. Then, both rescale the layers into the right size to make the predicition.</p>
 
             <h5 class="sub-titles">Why Use These Models Together?</h5>
-            <p class="main-sub-text">Each model has its strengths:<br><br>
-                Decision trees are easy to interpret and explain.<br><br>
-                    Random forests are robust and accurate.<br><br>
-                    KNN is simple and doesn’t assume much about the data.<br><br>
-                    Regression is efficient and works well for simpler patterns.<br><br>
-                    Neural networks are powerful and capture complex relationships.<br><br>
-                    By trying multiple models, we get a better sense of what works best for predicting genres. Plus, it’s fun to watch them compete!</p>
+            <p class="main-sub-text">Each model has its strengths:</p>
+                <ul class="story-ul">
+                    <li>Decision trees are easy to interpret and explain.</li>
+                    <li>Random forests are robust and accurate.</li>
+                    <li>KNN is simple and doesn’t assume much about the data.</li>
+                    <li>Regression is efficient and works well for simpler patterns.</li>
+                    <li>Neural networks are powerful and capture complex relationships.</li>
+                    
+                </ul>
+            <p class="main-sub-text">By trying multiple models, we get a better sense of what works best for predicting genres. Plus, it’s fun to watch them compete!</p>
 
             <h5 class="sub-titles">How Do We Compare Their Performance?</h5>
             <p class="main-sub-text">The F1 Score is our referee. It balances precision (how many predictions are correct) and recall (how many relevant genres are identified). A high F1 score means the model is both accurate and comprehensive — perfect for genre classification.</p>
@@ -791,20 +796,138 @@ current: home
             <p class="main-sub-text">Training a standard model is rather simple: Get the data, get the model, feed the model the data :). Yet, not all is happiness, neural networks require more work. Usually we will have 
                 to feed them the data more than ones (have some epochs). Therefore, we can see how it evolves over time.
                 <br><br>
-                
+            </p>
+            <div class="image-section">
+                            <img style="height: 260px;width: auto;" src="{{ site.baseurl }}assets/images/models/Dense-shape.png" alt="Dense-shape">
+                        </div>
+                        <div class="image-section">
+                            <img style="height: 260px;width: auto;" src="{{ site.baseurl }}assets/images/models/U-shape.png" alt="U-shape">
+                        </div>
+            <p class="main-sub-text">
                 Unlikely, our big boys are not very strong, and they had a bad time training :(. The lack of computational power does not allow us to make more validation on this models, and therefore train longer and with better settings. We leave this as a learning taks for the reader. So now, let's compare the performance of the models.
                 <br><br>
-            
-
+            </p>
+                <div class="container">
+                        <div class="image-section">
+                            <img style="height: 260px;width: auto;" src="{{ site.baseurl }}assets/images/models/score_comparation.png" alt="Score comparison">
+                        </div>
+                </div>
+    
+<p class="main-sub-text">
                 As we can see, all of them have a high accuracy and decent f-score. We also tried doing the predictions at random and as we can see, our models are better! Now, let’s see some of the predictions. 
                 <br><br>
 
 
-                As we can see our ridge guy get some a lot of the genres right but then, add some other for you to be aware of any potential topics hahaha!
-
-
+                As we can see, all of them have a high accuracy and decent f-score. We also tried doing the predictions at random and so we proven that, our models are better! With this said, let’s see some of the predictions and give some use to the models.. 
 
             </p>
+                        
+
+
+            <table border="1" style="margin-left: 140px;margin-right: 140px; width: 1000px;">
+                <thead>
+                  <tr>
+                    <th>Movie Name</th>
+                    <th>Original Genre</th>
+                    <th>Predicted Genre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Eraser</td>
+                    <td>Action/Adventure, Thriller</td>
+                    <td>Action/Adventure, Comedy, Crime, Drama, <br>Fantasy, Science Fiction, Thriller</td>
+                  </tr>
+                  <tr>
+                    <td>The Violin Player</td>
+                    <td>Drama</td>
+                    <td>Comedy, Drama, Romance</td>
+                  </tr>
+                  <tr>
+                    <td>Torn</td>
+                    <td>Drama</td>
+                    <td>Comedy, Drama, Romance</td>
+                  </tr>
+                  <tr>
+                    <td>Spirit</td>
+                    <td>Comedy, Drama</td>
+                    <td>Comedy, Drama, Romance, World cinema</td>
+                  </tr>
+                  <tr>
+                    <td>The White Flower</td>
+                    <td>Old-fashioned/classical style</td>
+                    <td>Comedy, Drama, Indie, Old-fashioned/classical style, <br>Romance, Short Film</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              BOOOM! Our ridgy guy get some of the genres right but then, add some other for you to be aware of any potential topics hahaha!
+              Also, if the you remember the some of most common genres were drama and comedy. Therefore, the model learned that if most the movie are classified as ‘drama’ or ‘comdey’, he gets less punishment from the training judge.
+              <table border="1" style="margin-left: 140px;margin-right: 140px; width: 1000px;">
+                <thead>
+                  <tr>
+                    <th>Movie Name</th>
+                    <th>Original Genre</th>
+                    <th>Predicted Genre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hey Ram</td>
+                    <td>Asian Movies, Drama, Historical, World cinema</td>
+                    <td>Drama</td>
+                  </tr>
+                  <tr>
+                    <td>Joshua Tree</td>
+                    <td>Action/Adventure, Crime, Indie, Thriller</td>
+                    <td>Drama</td>
+                  </tr>
+                  <tr>
+                    <td>Killer Party</td>
+                    <td>Horror</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              But at the end, not everything is drama, our forest manage to get good guesses
+
+              <table border="1" style="margin-left: 140px;margin-right: 140px; width: 1000px;">
+                <thead>
+                  <tr>
+                    <th>Movie Name</th>
+                    <th>Original Genre</th>
+                    <th>Predicted Genre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hey Ram</td>
+                    <td>Asian Movies, Drama, Historical, World cinema</td>
+                    <td>Action/Adventure, Comedy, Crime, Drama, Romance, Thriller</td>
+                  </tr>
+                  <tr>
+                    <td>Money Mad</td>
+                    <td>Crime, Indie, Old-fashioned/classical style, Short Film</td>
+                    <td>Comedy, Drama, Indie, Old-fashioned/classical style, Short Film</td>
+                  </tr>
+                  <tr>
+                    <td>Savages</td>
+                    <td>Crime, Drama, Thriller</td>
+                    <td>Action/Adventure, Comedy, Crime, Drama, Thriller</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            <h1 class="page-title" style="color: #000; text-align: center;">Epilogue</h1>
+            
+            <p class="small-text" style="color: #000;text-align: center;"><em>The next day, after hours of searching, you have finally find it. The movie genre classifier is yours. </em></p>
+    
+            <p class="small-text" style="color: #000;text-align: center;"><em>Will it work?</em> </p>
+            <p class="small-text" style="color: #000;text-align: center;"><em>You smile… You can’t wait to find out!</em> </p>
+
+
+
 
 
 </main>
